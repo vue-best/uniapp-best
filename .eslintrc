@@ -1,0 +1,64 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:import/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+  ],
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    // 指定eslint解析器
+    "parser": "@typescript-eslint/parser",
+    // 允许使用 import
+    "sourceType": "module",
+    // 允许解析 jsx
+    "ecmaFeatures": {
+      "jsx": true,
+    },
+  },
+  "plugins": ["vue", "@typescript-eslint", "prettier", "import"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+      },
+    },
+  },
+  "globals": {
+    "uni": true,
+    "UniApp": true,
+    "wx": true,
+    "getCurrentPages": true,
+    "UniHelper": true,
+    "Page": true,
+    "App": true,
+    "NodeJS": true,
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "vue/no-mutating-props": [
+      "error",
+      {
+        "shallowOnly": true, // 启用更改props值但保持引用不变的功能
+      },
+    ],
+    "no-undef": "off",
+    "vue/no-multiple-template-root": "off",
+    "vue/valid-template-root": [0],
+    "vue/no-reserved-component-names": "off",
+    "vue/multi-word-component-names": [0],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/ban-ts-comment": [0],
+    "@typescript-eslint/no-unused-vars": [0],
+    "@typescript-eslint/no-var-requires": [0],
+    "import/no-unresolved": "off",
+    "no-unused-vars": "off"
+  },
+}

@@ -1,0 +1,100 @@
+<!--
+ * @Author: wjc
+ * @Date: 2024-06-05 15:04:50
+ * @LastEditors: wjc
+ * @LastEditTime: 2024-07-15 10:37:59
+ * @Description: 
+-->
+<template>
+  <view class="splash-container">
+    <template v-if="isInstall">
+      <view class="splash-mask">
+        <image src="@/static/images/logo.svg" class="splash-logo"></image>
+        <view class="text">
+          <view>发现好用的</view>
+          <view class="vue">VUE</view>
+          <view>生态资源</view>
+        </view>
+      </view>
+    </template>
+    <up-swiper
+      v-else
+      :list="list"
+      height="100vh"
+      :autoplay="false"
+      @click="onTapSwiper"
+    ></up-swiper>
+    <MFooter></MFooter>
+  </view>
+</template>
+
+<script setup lang="ts">
+  import { useUserStore } from '@/stores/modules/userStore'
+
+  import guide1 from '@/static/images/guide1.png'
+  import guide2 from '@/static/images/guide2.png'
+  import guide3 from '@/static/images/guide3.png'
+
+  defineOptions({ name: 'Splash' })
+
+  const userStore = useUserStore()
+  const isInstall = computed(() => userStore.isInstall)
+  const list = ref([guide1, guide2, guide3])
+
+  const onTapSwiper = (index: number) => {
+    if (index === 2) {
+      uni.navigateTo({
+        url: '/pages/login/index',
+      })
+    }
+  }
+
+  onMounted(() => {
+    userStore
+      .getUserInfoAction()
+      .then((res) => {
+        if (res) {
+          // setTimeout(() => {
+          //   uni.switchTab({
+          //     url: '/pages/index/index',
+          //   })
+          // }, 2000)
+        } else {
+          uni.reLaunch({
+            url: '/pages/login/index',
+          })
+        }
+      })
+      .catch((err) => {
+        uni.reLaunch({
+          url: '/pages/login/index',
+        })
+      })
+  })
+</script>
+
+<style scoped lang="scss">
+  .splash-container {
+    @apply h-full;
+    .splash-img {
+      @apply h-full;
+    }
+    .splash-mask {
+      @apply flex flex-col  items-center text-center p-12px;
+      background: linear-gradient(180deg, #c5e6ff 0%, #ffffff 100%);
+      .text {
+        @apply flex items-center color-text-1 text-32px text-center mt-36px;
+        writing-mode: vertical-rl;
+        letter-spacing: 10px;
+        .vue {
+          @apply mb-12px text-48px font-700;
+          writing-mode: horizontal-tb;
+          background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+    }
+  }
+</style>

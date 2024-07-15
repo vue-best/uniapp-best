@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo '----commit 检查开始----'
+pnpm pre-commit
+echo '----commit 检查结束----'
