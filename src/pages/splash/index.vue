@@ -2,7 +2,7 @@
  * @Author: wjc
  * @Date: 2024-06-05 15:04:50
  * @LastEditors: wjc
- * @LastEditTime: 2024-07-15 10:37:59
+ * @LastEditTime: 2024-07-15 10:59:27
  * @Description: 
 -->
 <template>
@@ -24,7 +24,6 @@
       :autoplay="false"
       @click="onTapSwiper"
     ></up-swiper>
-    <MFooter></MFooter>
   </view>
 </template>
 
@@ -54,11 +53,11 @@
       .getUserInfoAction()
       .then((res) => {
         if (res) {
-          // setTimeout(() => {
-          //   uni.switchTab({
-          //     url: '/pages/index/index',
-          //   })
-          // }, 2000)
+          setTimeout(() => {
+            uni.switchTab({
+              url: '/pages/index/index',
+            })
+          }, 2000)
         } else {
           uni.reLaunch({
             url: '/pages/login/index',
@@ -75,23 +74,19 @@
 
 <style scoped lang="scss">
   .splash-container {
-    @apply h-full;
-    .splash-img {
-      @apply h-full;
-    }
+    @apply;
     .splash-mask {
-      @apply flex flex-col  items-center text-center p-12px;
-      background: linear-gradient(180deg, #c5e6ff 0%, #ffffff 100%);
+      @apply flex flex-col  items-center text-center;
       .text {
         @apply flex items-center color-text-1 text-32px text-center mt-36px;
-        writing-mode: vertical-rl;
         letter-spacing: 10px;
+        writing-mode: vertical-rl;
         .vue {
-          @apply mb-12px text-48px font-700;
-          writing-mode: horizontal-tb;
-          background: -webkit-linear-gradient(315deg, #42d392 25%, #647eff);
+          @apply text-48px font-700 bg-bg-primary;
+          letter-spacing: 0px;
+          background: linear-gradient(315deg, #42d392 25%, #647eff);
           background-clip: text;
-          -webkit-background-clip: text;
+          writing-mode: horizontal-tb;
           -webkit-text-fill-color: transparent;
         }
       }

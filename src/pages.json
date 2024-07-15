@@ -23,7 +23,7 @@
 				"pagePath": "pages/index/index",
 				"iconPath": "static/images/main/work.png",
 				"selectedIconPath": "static/images/main/work_1.png",
-				"text": "工作台"
+				"text": "首页"
 			},
 			{
 				"pagePath": "pages/mine/index",
@@ -36,7 +36,7 @@
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/splash/index",
-      "layout": false,
+      "layout": true,
 			"style": {
 				"navigationStyle": "custom"
 			}
@@ -63,7 +63,7 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uniapp-best"
+				"navigationStyle": "custom"
 			}
 		},
 		{
@@ -75,8 +75,9 @@
 		{
 			"path": "pages/test/index",
 			"actions": ["login"],
+			"layout": true,
 			"style": {
-				"navigationBarTitleText": "test page"
+				"navigationStyle": "custom"
 			}
 		}
 	],

@@ -3,7 +3,7 @@
  * @Date: 2024-06-12 10:05:12
  * @LastEditors: wjc
  * @LastEditTime: 2024-06-28 15:44:13
- * @Description:
+ * @Description: 测试 api
  */
 import { request } from '@/utils/request'
 import { BasicRes } from '@/models/requestTypes'
@@ -31,6 +31,17 @@ export function logout() {
 export function getUserInfo(data: string) {
   return request<BasicRes<Employees>>({
     url: `188788509`,
+    method: 'GET',
+  })
+}
+
+/**
+ * 获取内容列表数据
+ * @returns 字符串列表
+ */
+export function getContentList() {
+  return request<BasicRes<string[]>>({
+    url: `194000864`,
     method: 'GET',
   })
 }

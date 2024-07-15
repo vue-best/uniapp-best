@@ -26,8 +26,12 @@
 
 <style scoped lang="scss">
   .m-page {
-    @apply h-full bg-white p-12px;
-    background: linear-gradient(180deg, #c5e6ff 0%, #ffffff 100%);
-    backdrop-filter: blur(57px);
+    @apply relative flex-1 h-full p-12px overflow-y-auto;
+    background: linear-gradient(180deg, var(--color-primary-2) 0%, var(--bg-page) 100%);
+    &:has(.m-tabbar) {
+      :deep(.m-footer) {
+        padding-bottom: 25px;
+      }
+    }
   }
 </style>

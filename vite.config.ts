@@ -12,9 +12,10 @@ import uni from '@dcloudio/vite-plugin-uni'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
-
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import UniLayouts from '@uni-helper/vite-plugin-uni-layouts'
-// import UniPages from '@uni-helper/vite-plugin-uni-pages'
+
+import UniProvider from './build/vite-plugin-uni-provider'
 
 const root = process.cwd()
 
@@ -41,10 +42,13 @@ export default defineConfig(({ mode }) => {
       },
     },
     plugins: [
-      uni(),
       UniLayouts(),
+      uni(),
       // UniPages(),
+      //自动注册页面全局组件
+      UniProvider(),
       UnoCSS(),
+      vueJsx(),
       createSvgIconsPlugin({
         iconDirs: [pathResolve('src/static/icons')],
         symbolId: 'icon-[dir]-[name]',

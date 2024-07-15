@@ -11,6 +11,7 @@ import uviewPlus from 'uview-plus'
 import 'virtual:uno.css'
 import 'virtual:svg-icons-register'
 
+import { setupI18n } from '@/locale'
 import { setupStores } from '@/stores'
 import setupInterceptors from '@/interceptors'
 import '@/static/styles/vars.scss'
@@ -22,6 +23,8 @@ export function createApp() {
   const app = createSSRApp(App)
 
   app.use(uviewPlus)
+
+  setupI18n(app)
   setupStores(app)
   setupInterceptors(app)
 

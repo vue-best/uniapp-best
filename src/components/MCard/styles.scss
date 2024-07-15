@@ -1,0 +1,13 @@
+.m-card {
+  @apply my-12px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 20%);
+  .m-card-item {
+    @apply w-full;
+  }
+  .m-card-spacer {
+    @apply h-1px w-full bg-border-1 my-4px;
+  }
+  .m-card-spacer-horiz {
+    @apply h-20px w-1px bg-border-1 my-4px;
+  }
+}

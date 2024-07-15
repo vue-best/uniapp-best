@@ -1,3 +1,10 @@
+<!--
+ * @Author: wjc
+ * @Date: 2024-07-02 15:15:41
+ * @LastEditors: wjc
+ * @LastEditTime: 2024-07-15 10:43:58
+ * @Description: 
+-->
 <template>
   <view>
     <up-modal :show="true">
@@ -15,8 +22,6 @@
   defineOptions({ name: 'Auth' })
 
   const handleConfirm = () => {
-    uni.navigateTo({ url: '/pages/login/index' })
+    uni.reLaunch({ url: '/pages/login/index' })
   }
 </script>
-
-<style scoped lang="scss"></style>

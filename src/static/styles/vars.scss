@@ -1,10 +1,33 @@
 :root {
   --color-primary: #0f67f8;
+  --color-primary-2: #c5e6ff;
   --color-success: #10b86f;
   --color-warning: #ffa800;
   --color-danger: #ff495e;
   --color-error: #ff495e;
   --color-info: #26a2fa;
 
+  --text-color-1: #213547;
+
   --bg-page: #f1f1f3;
+  --bg-card: #fff;
+
+  --border-color-1: #e3e8f7;
+}
+
+.dark {
+  --color-primary: #0f67f8;
+  --color-primary-2: #242424;
+  --color-success: #10b86f;
+  --color-warning: #ffa800;
+  --color-danger: #ff495e;
+  --color-error: #ff495e;
+  --color-info: #26a2fa;
+
+  --bg-page: #242424;
+  --bg-card: #1a1a1a;
+
+  --border-color-1: rgba(84, 84, 84, 0.48);
+
+  --text-color-1: rgba(255, 255, 255, 0.87);
 }

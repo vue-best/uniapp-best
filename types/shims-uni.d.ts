@@ -11,4 +11,7 @@ import 'vue'
 declare module '@vue/runtime-core' {
   type Hooks = App.AppInstance & Page.PageInstance
   interface ComponentCustomOptions extends Hooks {}
+  interface ComponentCustomProperties {
+    $tt?: (template: string, data?: any) => string
+  }
 }

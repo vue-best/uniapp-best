@@ -7,8 +7,9 @@
  */
 import { defineStore } from 'pinia'
 
+import { useAppStore } from './appStore'
 import { UserState, ILogin, LoginRes, Employees } from '@/models/userTypes'
-import { login, logout, getUserInfo } from '@/api/userApi'
+import { login, logout, getUserInfo, getContentList } from '@/api/userApi'
 
 export const useUserStore = defineStore('user', {
   state: (): UserState => {
@@ -19,10 +20,12 @@ export const useUserStore = defineStore('user', {
       userInfo: new Employees({}),
       storageLoginInfo: undefined,
       storageUserId: '',
+      contentList: [],
     }
   },
-  persist: true,
-  getters: {},
+  persist: {
+    paths: ['isPrivacyShowed', 'isInstall', 'storageLoginInfo', 'storageUserId', 'userInfo'],
+  },
   actions: {
     loginAction(data: ILogin): Promise<LoginRes> {
       return new Promise((resolve, reject) => {
@@ -42,10 +45,12 @@ export const useUserStore = defineStore('user', {
       })
     },
     logoutAction(): Promise<string> {
+      const appStore = useAppStore()
       return new Promise((resolve, reject) => {
         logout()
           .then((res) => {
             if (res && res.data) {
+              appStore.setTabbar(0)
               this.$reset()
               resolve(res.data)
             }
@@ -71,6 +76,20 @@ export const useUserStore = defineStore('user', {
         } else {
           reject(false)
         }
+      })
+    },
+    contentListAction(): Promise<string[]> {
+      return new Promise((resolve, reject) => {
+        getContentList()
+          .then((res) => {
+            if (res && res.data) {
+              this.contentList = res.data
+              resolve(res.data)
+            }
+          })
+          .catch((error) => {
+            reject(error)
+          })
       })
     },
   },

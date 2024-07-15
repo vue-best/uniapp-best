@@ -1,0 +1,10 @@
+{
+  "index.custom.icon": "Custom Icon",
+  "index.lang.params": "Hello {appName}",
+  "index.language": "Language",
+  "index.dark": "Dark Mode",
+  "index.logout": "Logout",
+  "mine.star": "Star",
+  "mine.image": "Image",
+  "mine.message": "Message"
+}

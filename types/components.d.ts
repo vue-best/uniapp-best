@@ -12,7 +12,10 @@ declare module 'vue' {
     MContainer: typeof import('./../src/components/MContainer/index.vue')['default']
     MFooter: typeof import('./../src/components/MFooter/index.vue')['default']
     MIcon: typeof import('./../src/components/MIcon/index.vue')['default']
+    MNavBar: typeof import('./../src/components/MNavBar/index.vue')['default']
     MPage: typeof import('./../src/components/MPage/index.vue')['default']
+    MSys: typeof import('./../src/components/MSys/index.vue')['default']
+    MTabBar: typeof import('./../src/components/MTabBar/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

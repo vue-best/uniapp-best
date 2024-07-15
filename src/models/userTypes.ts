@@ -12,6 +12,7 @@ export interface UserState {
   userInfo: Employees
   storageLoginInfo: ILogin
   storageUserId: string
+  contentList: string[]
 }
 
 export interface ILogin {

@@ -15,14 +15,18 @@
     <view class="form">
       <up-form ref="formRef" :model="formState" :rules="rules" error-type="toast">
         <up-form-item prop="account">
-          <up-input v-model="formState.account" border="none" placeholder="请输入账号"></up-input>
+          <up-input
+            v-model="formState.account"
+            border="none"
+            placeholder="请输入账号，任意账号"
+          ></up-input>
         </up-form-item>
         <up-form-item prop="password">
           <up-input
             v-model="formState.password"
             border="none"
             type="password"
-            placeholder="请输入密码"
+            placeholder="请输入密码，任意密码"
           ></up-input>
         </up-form-item>
       </up-form>
@@ -35,7 +39,9 @@
             :label-size="14"
           ></up-checkbox>
         </up-checkbox-group>
-        <text class="font-500 color-black" @click="goPrivacy">《UniApp Best 个人信息保护政策》</text>
+        <text class="font-500 color-black" @click="goPrivacy">
+          《UniApp Best 个人信息保护政策》
+        </text>
       </view>
       <up-button type="primary" class="btn-primary" @click="onSubmit">登录</up-button>
       <up-button type="text" class="mt-24px" @click="onTest">查看 Auth 页面</up-button>

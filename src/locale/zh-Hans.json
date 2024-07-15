@@ -1,0 +1,10 @@
+{
+  "index.custom.icon": "自定义图标",
+  "index.lang.params": "你好 {appName}",
+  "index.language": "语言",
+  "index.dark": "深色模式",
+  "index.logout": "退出登录",
+  "mine.star": "收藏",
+  "mine.image": "图片",
+  "mine.message": "消息"
+}

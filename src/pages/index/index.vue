@@ -7,49 +7,37 @@
 -->
 <template>
   <view class="content">
-    <image class="logo" src="/static/images/logo.svg"></image>
+    <view :class="`i-custom-${icon}`" class="wh-160px"></view>
     <view class="text-area">
-      <text class="title">{{ title }}</text>
+      <view class="title">{{ $tt('index.lang.params', { appName }) }}</view>
     </view>
-    <view :class="`i-custom-${icon}`" class="wh-32px text-32px"></view>
     <u-button type="primary" text="确定"></u-button>
     <u-button @click="onTest">前往 Auth 页面</u-button>
   </view>
+  <MTabBar></MTabBar>
 </template>
 
 <script setup lang="ts">
-  import MIcon from '@/components/MIcon/index.vue'
-
-  const title = ref('自定义图标')
   const icon = ref('logo')
+  const appName = ref('uniapp-best')
 
   const onTest = () => {
     uni.navigateTo({
-      url: '/pages/test/index'
+      url: '/pages/test/index',
     })
   }
+
+  onLaunch(() => {
+    uni.setLocale('en')
+    uni.hideTabBar()
+  })
+  onShow(() => {
+    uni.hideTabBar()
+  })
 </script>
 
 <style lang="scss">
   .content {
-    display: flex;
-    flex-direction: column;
-    grid-gap: 8px;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo {
-    width: 200rpx;
-    height: 200rpx;
-    margin-top: 200rpx;
-    margin-right: auto;
-    margin-bottom: 50rpx;
-    margin-left: auto;
-  }
-
-  .title {
-    font-size: 36rpx;
-    color: #8f8f94;
+    @apply flex flex-col gap-16px items-center justify-center;
   }
 </style>
