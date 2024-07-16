@@ -14,7 +14,6 @@ import 'virtual:svg-icons-register'
 import { setupI18n } from '@/locale'
 import { setupStores } from '@/stores'
 import setupInterceptors from '@/interceptors'
-import '@/static/styles/vars.scss'
 import '@/static/styles/index.scss'
 
 import App from './App.vue'

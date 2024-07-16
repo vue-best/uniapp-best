@@ -34,10 +34,6 @@ const interceptor = {
       version: sysInfo.appVersion, // 版本号
       platform: sysInfo.osName ?? 'app', // 所用系统
     }
-    // entCode
-    if (storageLoginInfo && storageLoginInfo.entCode) {
-      options.header.entcode = storageLoginInfo.entCode
-    }
     // token
     if (userStore.token) {
       options.header.Authorization = `Bearer ${userStore.token}`

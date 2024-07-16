@@ -105,10 +105,6 @@
       }
     })
   }
-
-  onLaunch(() => {
-    uni.hideTabBar()
-  })
 </script>
 
 <style scoped lang="scss">

@@ -28,11 +28,8 @@
   }
 
   onLaunch(() => {
+    // 测试
     uni.setLocale('en')
-    uni.hideTabBar()
-  })
-  onShow(() => {
-    uni.hideTabBar()
   })
 </script>
 
