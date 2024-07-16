@@ -28,7 +28,6 @@ const interceptor = {
     options.timeout = 100000
     // 请求头标识符
     const sysInfo = uni.getSystemInfoSync()
-    const storageLoginInfo: ILogin = userStore.storageLoginInfo
     options.header = {
       ...options.header,
       version: sysInfo.appVersion, // 版本号

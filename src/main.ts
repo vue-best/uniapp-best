@@ -21,11 +21,10 @@ import App from './App.vue'
 export function createApp() {
   const app = createSSRApp(App)
 
-  app.use(uviewPlus)
-
   setupI18n(app)
   setupStores(app)
   setupInterceptors(app)
+  app.use(uviewPlus)
 
   return {
     app,

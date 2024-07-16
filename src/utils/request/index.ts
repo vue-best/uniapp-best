@@ -25,34 +25,37 @@ export const request = <T>(options: IRequestOptions) => {
   })
 }
 
-request.get = <T>(url: string, options?: Omit<IRequestOptions, 'url'>) => {
+request.get = <T>(url: string, options: Omit<IRequestOptions, 'url'> = {}) => {
   return request<T>({
     method: 'GET',
-    url,
-    ...options
-  })
-}
-
-request.post = <T>(url: string, options?: Omit<IRequestOptions, 'url'>) => {
-  return request<T>({
-    method: 'POST',
-    url,
-    ...options
-  })
-}
-
-request.put = <T>(url: string, options?: Omit<IRequestOptions, 'url'>) => {
-  return request<T>({
-    method: 'PUT',
     url,
     ...options,
   })
 }
 
-request.del = <T>(url: string, options?: Omit<IRequestOptions, 'url'>) => {
+request.post = <T>(url: string, data = {}, options: Omit<IRequestOptions, 'url'> = {}) => {
+  return request<T>({
+    method: 'POST',
+    url,
+    data,
+    ...options,
+  })
+}
+
+request.put = <T>(url: string, data = {}, options: Omit<IRequestOptions, 'url'> = {}) => {
+  return request<T>({
+    method: 'PUT',
+    url,
+    data,
+    ...options,
+  })
+}
+
+request.del = <T>(url: string, data = {}, options: Omit<IRequestOptions, 'url'> = {}) => {
   return request<T>({
     method: 'DELETE',
     url,
+    data,
     ...options,
   })
 }
