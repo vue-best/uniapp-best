@@ -6,17 +6,40 @@
  * @Description:
 -->
 
-## uniapp-best
+# uniapp-best
 
 现代化的 Uniapp 开发模板。
 
 使用 vue3 开发，已配置好**多语言**、**主题切换**等特色功能。
 
-### 技术栈
+## 运行
+
+> 环境要求： node >= 18.14.2 pnpm >=9.1.4
+
+```bash
+# 克隆项目
+git clone https://github.com/wjc-1996/uniapp-best.git
+
+# 安装依赖
+pnpm install
+
+# 启动开发环境
+pnpm dev:h5
+```
+
+效果图：
+
+<div style="display: flex; grid-gap: 8px;">
+<img src="./src/static//images//start1.jpg" width="50%" />
+<img src="./src/static//images//start2.jpg" width="50%" />
+</div>
+
+
+## 技术栈
 
 uniapp + vue3 + uview-plus + vite5 + pinia + typescript + unocss + sass
 
-### 功能
+## 功能
 
 - [x] 布局设置
 - [x] 基础组件
@@ -32,7 +55,7 @@ uniapp + vue3 + uview-plus + vite5 + pinia + typescript + unocss + sass
 - [x] 代码检查
 - [ ] 检查升级
 
-#### 布局设置
+### 布局设置
 
 uniapp-best 使用 [@uni-helper/vite-plugin-uni-layouts](https://github.com/uni-helper/vite-plugin-uni-layouts) 实现全局的布局组件，`src/layouts/default.vue` 是默认的布局，该布局实现了一些基础页面功能，比如内容边距和页脚等。
 
@@ -91,7 +114,7 @@ uniapp-best 使用 [@uni-helper/vite-plugin-uni-layouts](https://github.com/uni-
 </style>
 ```
 
-#### 基础组件
+### 基础组件
 
 uniapp-best 提供了一些基础组件，使用时无需引入，直接使用即可，你可以使用首字母大写驼峰或者字母小写连字符的方式引用。
 
@@ -133,7 +156,7 @@ svg 图标组件，
 
 标签栏组件，用于显示标签栏。
 
-#### husky 配置说明
+### husky 配置说明
 
 安装 husky
 
