@@ -1,5 +1,5 @@
 /* uview-plus 样式覆盖 */
-$u-popup-content-background-color: var(--bg-card);
+$u-popup-content-background-color: var(--bg-card) !important;
 
 .u-picker__view__column__item {
   @apply color-text-1\!;

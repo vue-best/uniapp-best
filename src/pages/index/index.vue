@@ -6,6 +6,7 @@
  * @Description: 
 -->
 <template>
+  <MNavBar title="首页" :not-back="true"></MNavBar>
   <view class="content">
     <view :class="`i-custom-${icon}`" class="wh-160px"></view>
     <view class="text-area">
