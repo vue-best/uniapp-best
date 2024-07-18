@@ -14,7 +14,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --fix",
     "format": "prettier --write",
-    "lint:style": "stylelint --fix",
+    "lint:style": "stylelint --fix --allow-empty-input",
     "pre-commit": "lint-staged",
     "prepare": "husky install"
   },
