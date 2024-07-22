@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-07-10 11:21:52
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-11 20:20:48
- * @Description:
- */
 import path from 'path'
 import c from 'picocolors'
 import normallize from 'normalize-path'

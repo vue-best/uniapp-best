@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2023-05-07 20:59:28
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-15 10:40:16
- * @Description:
- */
 import {
   defineConfig,
   presetUno,

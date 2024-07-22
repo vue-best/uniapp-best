@@ -1,10 +1,3 @@
-<!--
- * @Author: wjc
- * @Date: 2024-06-17 16:02:59
- * @LastEditors: wjc
- * @LastEditTime: 2024-06-28 15:42:27
- * @Description: 
--->
 <template>
   <MNavBar title="我的" :not-back="true"></MNavBar>
   <view class="user">

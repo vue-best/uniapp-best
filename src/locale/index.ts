@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-07-11 20:29:20
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-12 16:39:41
- * @Description:
- */
 import type { App } from 'vue'
 import { createI18n } from 'vue-i18n'
 

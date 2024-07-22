@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-06-05 11:22:45
- * @LastEditors: wjc
- * @LastEditTime: 2024-06-05 17:16:15
- * @Description:
- */
 import { defineStore } from 'pinia'
 
 import i18n, { LangTypes } from '@/locale'

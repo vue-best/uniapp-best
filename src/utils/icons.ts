@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-05-29 09:55:14
- * @LastEditors: wjc
- * @LastEditTime: 2024-05-29 15:59:22
- * @Description:
- */
 import fs from 'fs'
 import ep from '@iconify-json/ep/icons.json'
 

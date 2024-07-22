@@ -1,10 +1,3 @@
-<!--
- * @Author: wjc
- * @Date: 2024-06-25 15:42:58
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-15 11:07:50
- * @Description: 
--->
 <template>
   <view class="default-layout" :class="[appStore.isDark ? 'dark' : 'light']">
     <MPage>

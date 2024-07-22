@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-06-05 10:21:23
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-02 15:17:32
- * @Description:
- */
 import type { IRequestOptions } from '@/models/requestTypes'
 import { checkStatus } from './checkStatus'
 

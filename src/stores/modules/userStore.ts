@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-06-05 17:13:30
- * @LastEditors: wjc
- * @LastEditTime: 2024-06-28 16:00:24
- * @Description:
- */
 import { defineStore } from 'pinia'
 
 import { useAppStore } from './appStore'

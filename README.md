@@ -1,11 +1,3 @@
-<!--
- * @Author: wjc
- * @Date: 2024-05-27 17:21:43
- * @LastEditors: wjc
- * @LastEditTime: 2024-06-28 10:23:11
- * @Description:
--->
-
 # uniapp-best
 
 现代化的 Uniapp 开发模板。

@@ -1,10 +1,3 @@
-<!--
- * @Author: wjc
- * @Date: 2024-07-02 15:15:41
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-15 10:43:58
- * @Description: 
--->
 <template>
   <view>
     <up-modal :show="true">

@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-05-27 11:49:45
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-02 15:16:40
- * @Description:
- */
 import { createSSRApp } from 'vue'
 import * as Pinia from 'pinia'
 import uviewPlus from 'uview-plus'

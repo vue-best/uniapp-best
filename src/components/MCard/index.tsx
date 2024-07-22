@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-07-12 10:46:19
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-12 15:02:10
- * @Description:
- */
 import { Fragment } from 'vue'
 import './styles.scss'
 

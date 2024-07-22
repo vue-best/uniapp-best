@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-06-25 15:45:01
- * @LastEditors: wjc
- * @LastEditTime: 2024-06-25 15:45:27
- * @Description:
- */
 import { defineUniPages } from '@uni-helper/vite-plugin-uni-pages'
 
 export default defineUniPages({

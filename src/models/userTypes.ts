@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-06-05 17:14:01
- * @LastEditors: wjc
- * @LastEditTime: 2024-06-28 15:41:22
- * @Description:
- */
 export interface UserState {
   isPrivacyShowed: boolean
   isInstall: boolean

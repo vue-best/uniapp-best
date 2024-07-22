@@ -1,10 +1,3 @@
-<!--
- * @Author: wjc
- * @Date: 2019-08-22 19:41:20
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-02 15:19:28
- * @Description: 
--->
 <template>
   <MNavBar title="首页" :not-back="true"></MNavBar>
   <view class="content">

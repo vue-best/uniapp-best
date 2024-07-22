@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2023-05-07 12:04:34
- * @LastEditors: wjc
- * @LastEditTime: 2024-06-06 10:52:03
- * @Description:
- */
 module.exports = {
   printWidth: 100,
   tabWidth: 2,

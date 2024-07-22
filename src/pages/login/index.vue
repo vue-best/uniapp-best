@@ -1,10 +1,3 @@
-<!--
- * @Author: wjc
- * @Date: 2024-06-06 14:51:25
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-15 10:35:49
- * @Description: 
--->
 <template>
   <view class="login-container">
     <view class="header">

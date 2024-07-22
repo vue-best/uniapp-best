@@ -1,10 +1,3 @@
-<!--
- * @Author: wjc
- * @Date: 2024-07-01 10:50:31
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-02 15:20:36
- * @Description: 
--->
 <template>
   <svg v-bind="$attrs" aria-hidden="true" class="m-icon">
     <use :xlink:href="symbolId" :fill="color" />

@@ -1,10 +1,3 @@
-<!--
- * @Author: wjc
- * @Date: 2024-07-02 10:07:46
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-02 10:08:09
- * @Description: 
--->
 <template>
   <MNavBar title="列表" :right-menu="rightMenu" @right-click="handleRightClick"></MNavBar>
   <view class="flex flex-col gap-16px">

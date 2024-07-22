@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-05-27 11:42:28
- * @LastEditors: wjc
- * @LastEditTime: 2024-06-05 09:28:49
- * @Description:
- */
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {

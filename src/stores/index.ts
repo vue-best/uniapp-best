@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-06-05 11:23:46
- * @LastEditors: wjc
- * @LastEditTime: 2024-06-25 15:02:42
- * @Description:
- */
 import type { App } from 'vue'
 import * as Pinia from 'pinia'
 import { createPersistedState } from 'pinia-plugin-persistedstate'

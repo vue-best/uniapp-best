@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-06-05 10:36:43
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-02 15:24:59
- * @Description:
- */
 import { useUserStore } from '@/stores/modules/userStore'
 
 export function checkStatus(err: any) {

@@ -1,10 +1,3 @@
-<!--
- * @Author: wjc
- * @Date: 2024-06-18 10:17:32
- * @LastEditors: wjc
- * @LastEditTime: 2024-06-28 10:25:01
- * @Description: 
--->
 <template>
   <view class="m-footer">
     <view>UniApp Best</view>

@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-07-02 10:16:29
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-02 15:05:47
- * @Description:
- */
 import type { App } from 'vue'
 import qs from 'qs'
 import { useUserStore } from '@/stores/modules/userStore'

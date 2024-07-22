@@ -1,10 +1,3 @@
-<!--
- * @Author: wjc
- * @Date: 2024-07-08 16:31:21
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-12 17:03:13
- * @Description: 
--->
 <template>
   <up-tabbar
     :value="appStore.selectedTabbar"

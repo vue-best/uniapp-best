@@ -1,10 +1,3 @@
-/*
- * @Author: wjc
- * @Date: 2024-06-12 10:05:12
- * @LastEditors: wjc
- * @LastEditTime: 2024-06-28 15:44:13
- * @Description: 测试 api
- */
 import { request } from '@/utils/request'
 import { BasicRes } from '@/models/requestTypes'
 import { ILogin, LoginRes, Employees } from '@/models/userTypes'

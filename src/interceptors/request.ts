@@ -1,13 +1,5 @@
-/*
- * @Author: wjc
- * @Date: 2024-07-02 10:12:51
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-02 10:25:19
- * @Description: uni.request API 请求拦截
- */
 import type { App } from 'vue'
 import qs from 'qs'
-import type { ILogin } from '@/models/userTypes'
 import type { IRequestOptions } from '@/models/requestTypes'
 import { useUserStore } from '@/stores/modules/userStore'
 

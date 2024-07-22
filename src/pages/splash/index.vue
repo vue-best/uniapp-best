@@ -1,10 +1,3 @@
-<!--
- * @Author: wjc
- * @Date: 2024-06-05 15:04:50
- * @LastEditors: wjc
- * @LastEditTime: 2024-07-15 10:59:27
- * @Description: 
--->
 <template>
   <view class="splash-container">
     <template v-if="isInstall">
