@@ -1,16 +1,30 @@
 import {
+  type Preset,
   defineConfig,
   presetUno,
   presetIcons,
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
+import { presetApplet, presetRemRpx } from 'unocss-applet'
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 import iconList from './src/utils/icons'
 
+const isMp = process.env?.UNI_PLATFORM?.startsWith('mp') ?? false
+const presets: Preset[] = []
+if (isMp) {
+  // 使用小程序预设
+  presets.push(presetApplet(), presetRemRpx())
+} else {
+  presets.push(
+    // 非小程序用官方预设
+    presetUno()
+  )
+}
+
 export default defineConfig({
   presets: [
-    presetUno(),
+    ...presets,
     presetIcons({
       scale: 1.2,
       extraProperties: {

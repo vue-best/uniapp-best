@@ -7,9 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    MButton: typeof import('./../src/components/MButton/index.vue')['default']
     MCard: typeof import('./../src/components/MCard/index.vue')['default']
-    MContainer: typeof import('./../src/components/MContainer/index.vue')['default']
     MFooter: typeof import('./../src/components/MFooter/index.vue')['default']
     MIcon: typeof import('./../src/components/MIcon/index.vue')['default']
     MNavBar: typeof import('./../src/components/MNavBar/index.vue')['default']

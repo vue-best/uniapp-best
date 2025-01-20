@@ -63,5 +63,18 @@ export default defineConfig(({ mode }) => {
         dts: 'types/auto-import.d.ts', // 自动生成 'auto-import.d.ts'全局声明
       }),
     ],
+    // build: {
+    //   // 方便非h5端调试
+    //   sourcemap: env.VITE_SHOW_SOURCEMAP === 'true', // 默认是false
+    //   target: 'es6',
+    //   // 开发环境不用压缩
+    //   minify: mode === 'development' ? false : 'terser',
+    //   terserOptions: {
+    //     compress: {
+    //       drop_console: env.VITE_DELETE_CONSOLE === 'true',
+    //       drop_debugger: true,
+    //     },
+    //   },
+    // },
   }
 })

@@ -1,6 +1,6 @@
 <template>
   <up-modal :show="show" class="" :z-index="0">
-    <view class="relative w-full h-450px">
+    <view class="relative w-100px h-250px">
       <view class="text-16px font-600 text-center mb-30px">UniApp Best 个人信息保护政策</view>
       <web-view src="https://zh.uniapp.dcloud.io/" class="relative mt-30px h-400px"></web-view>
     </view>
@@ -19,7 +19,7 @@
   const emit = defineEmits<{
     (e: 'privacy', data: boolean): void
   }>()
-  const show = ref(true)
+  const show = ref(false)
 
   const onNotAgree = () => {
     emit('privacy', false)

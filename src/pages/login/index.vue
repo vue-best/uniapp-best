@@ -40,14 +40,14 @@
       <up-button type="text" class="mt-24px" @click="onTest">查看 Auth 页面</up-button>
     </view>
     <MFooter></MFooter>
-    <PrivacyModal @privacy="handlePrivacy"></PrivacyModal>
+    <!-- <PrivacyModal @privacy="handlePrivacy"></PrivacyModal> -->
   </view>
 </template>
 
 <script setup lang="ts">
   import { useUserStore } from '@/stores/modules/userStore'
   import logo from '@/static/images/logo.svg'
-  import PrivacyModal from './components/privacy.vue'
+  // import PrivacyModal from './components/privacy.vue'
 
   defineOptions({ name: 'Login' })
 

@@ -1,7 +1,10 @@
 .btn-default {
-  @apply rounded-20px\! text-16px p-12px bg-bg-page;
+  @apply text-16px p-12px bg-bg-page;
+  border-radius: 20px !important;
 }
 
 .btn-primary {
-  @apply rounded-20px\! text-16px p-12px bg-bg-primary\! color-white;
+  @apply text-16px p-12px color-white;
+  background: var(--color-primary) !important;
+  border-radius: 20px !important;
 }

@@ -1,6 +1,12 @@
 <template>
   <page-meta>
-    <navigation-bar v-bind="originNavBarStyle" />
+    <!-- 微信小程序非自定义组件不支持 v-bind(2025-1-16)，兼容处理 -->
+    <!-- <navigation-bar v-bind="originNavBarStyle" /> -->
+    <navigation-bar
+      :front-color="originNavBarStyle.frontColor"
+      :background-color="originNavBarStyle.backgroundColor"
+      :animation="originNavBarStyle.animation"
+    />
   </page-meta>
   <slot></slot>
 </template>

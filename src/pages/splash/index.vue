@@ -67,7 +67,6 @@
 
 <style scoped lang="scss">
   .splash-container {
-    @apply;
     .splash-mask {
       @apply flex flex-col  items-center text-center;
       .text {
