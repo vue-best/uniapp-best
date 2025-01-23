@@ -22,19 +22,24 @@ export const useUserStore = defineStore('user', {
   actions: {
     loginAction(data: ILogin): Promise<LoginRes> {
       return new Promise((resolve, reject) => {
-        login(data)
-          .then((res) => {
-            if (res && res.data) {
-              this.isPrivacyShowed = true
-              this.isInstall = true
-              this.storageLoginInfo = data
-              this.storageUserId = res.data.id
-              resolve(res.data)
-            }
-          })
-          .catch((error) => {
-            reject(error)
-          })
+        this.isPrivacyShowed = true
+        this.isInstall = true
+        this.storageLoginInfo = data
+        this.storageUserId = '123456'
+        resolve(data as any)
+        // login(data)
+        //   .then((res) => {
+        //     if (res && res.data) {
+        //       this.isPrivacyShowed = true
+        //       this.isInstall = true
+        //       this.storageLoginInfo = data
+        //       this.storageUserId = res.data.id
+        //       resolve(res.data)
+        //     }
+        //   })
+        //   .catch((error) => {
+        //     reject(error)
+        //   })
       })
     },
     logoutAction(): Promise<string> {
@@ -55,20 +60,22 @@ export const useUserStore = defineStore('user', {
     },
     getUserInfoAction(): Promise<Employees> {
       return new Promise((resolve, reject) => {
-        if (this.storageUserId) {
-          getUserInfo(this.storageUserId)
-            .then((res) => {
-              if (res && res.data) {
-                this.userInfo = res.data
-                resolve(res.data)
-              }
-            })
-            .catch((error) => {
-              reject(error)
-            })
-        } else {
-          reject(false)
-        }
+        this.userInfo = this.storageLoginInfo as any
+        return resolve({})
+        // if (this.storageUserId) {
+        //   getUserInfo(this.storageUserId)
+        //     .then((res) => {
+        //       if (res && res.data) {
+        //         this.userInfo = res.data
+        //         resolve(res.data)
+        //       }
+        //     })
+        //     .catch((error) => {
+        //       reject(error)
+        //     })
+        // } else {
+        //   reject(false)
+        // }
       })
     },
     contentListAction(): Promise<string[]> {

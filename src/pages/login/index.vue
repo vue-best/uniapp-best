@@ -6,38 +6,35 @@
       <view class="desc">可使用账号密码登录</view>
     </view>
     <view class="form">
-      <up-form ref="formRef" :model="formState" :rules="rules" error-type="toast">
-        <up-form-item prop="account">
-          <up-input
-            v-model="formState.account"
-            border="none"
-            placeholder="请输入账号，任意账号"
-          ></up-input>
-        </up-form-item>
-        <up-form-item prop="password">
-          <up-input
-            v-model="formState.password"
-            border="none"
-            type="password"
-            placeholder="请输入密码，任意密码"
-          ></up-input>
-        </up-form-item>
-      </up-form>
+      <wd-form ref="formRef" :model="formState" :rules="rules" error-type="toast">
+        <wd-input
+          v-model="formState.account"
+          prop="account"
+          clearable
+          no-border
+          custom-class="rounded-24px mb-24px px-24px"
+          custom-input-class="h-40px!"
+          placeholder="请输入账号，任意账号"
+        ></wd-input>
+        <wd-input
+          v-model="formState.password"
+          prop="password"
+          type="password"
+          clearable
+          no-border
+          custom-class="rounded-24px mb-24px px-24px"
+          custom-input-class="h-40px!"
+          placeholder="请输入密码，任意密码"
+        ></wd-input>
+      </wd-form>
       <view class="flex items-center color-gray text-14px mt-24px mb-24px">
-        <up-checkbox-group v-model="isChecks">
-          <up-checkbox
-            shape="circle"
-            name="isCheck"
-            label="我已阅读同意"
-            :label-size="14"
-          ></up-checkbox>
-        </up-checkbox-group>
-        <text class="font-500 color-black" @click="goPrivacy">
-          《UniApp Best 个人信息保护政策》
-        </text>
+        <wd-checkbox v-model="isChecks" name="isCheck" :label-size="14">我已阅读同意</wd-checkbox>
+        <text class="font-500 color-black" @click="goPrivacy">《个人信息保护政策》</text>
       </view>
-      <up-button type="primary" class="btn-primary" @click="onSubmit">登录</up-button>
-      <up-button type="text" class="mt-24px" @click="onTest">查看 Auth 页面</up-button>
+      <view class="flex flex-col">
+        <wd-button type="primary" class="btn-primary" @click="onSubmit">登录</wd-button>
+        <wd-button type="text" class="mt-24px" @click="onTest">查看 Auth 页面</wd-button>
+      </view>
     </view>
     <MFooter></MFooter>
     <!-- <PrivacyModal @privacy="handlePrivacy"></PrivacyModal> -->
@@ -59,18 +56,22 @@
   })
   const isChecks = ref([])
   const rules = ref({
-    account: {
-      type: 'number',
-      required: true,
-      message: '请输入账号',
-      trigger: ['blur', 'change'],
-    },
-    password: {
-      type: 'string',
-      required: true,
-      message: '请输入密码',
-      trigger: ['blur', 'change'],
-    },
+    account: [
+      {
+        type: 'number',
+        required: true,
+        message: '请输入账号',
+        trigger: ['blur', 'change'],
+      },
+    ],
+    password: [
+      {
+        type: 'string',
+        required: true,
+        message: '请输入密码',
+        trigger: ['blur', 'change'],
+      },
+    ],
   })
 
   const goPrivacy = () => {
@@ -84,7 +85,7 @@
   const onSubmit = () => {
     formRef.value
       .validate()
-      .then((valid) => {
+      .then(({ valid }) => {
         if (valid) {
           if (isChecks.value.length === 0) {
             uni.showToast({
@@ -126,7 +127,7 @@
     @apply wh-full p-24px box-border;
     background: linear-gradient(200deg, #88bcf0 0%, #fff 100%);
     .header {
-      @apply mt-140px;
+      @apply mt-120px;
       .logo {
         @apply wh-60px;
       }
@@ -139,12 +140,6 @@
     }
     .form {
       @apply my-24px;
-      .u-form {
-        @apply flex flex-col gap-18px;
-        .u-form-item {
-          @apply bg-bg-page rounded-20px px-16px;
-        }
-      }
     }
   }
 </style>

@@ -1,10 +1,16 @@
 <template>
-  <up-navbar ref="mNavBarRef" v-bind="$attrs" class="m-navbar" placeholder :bg-color="bgColor">
+  <wd-navbar
+    ref="mNavBarRef"
+    v-bind="$attrs"
+    class="m-navbar"
+    placeholder
+    :custom-style="{ background: bgColor }"
+  >
     <template #left>
       <view v-if="notBack"></view>
       <view v-else class="i-ep-arrow-left wh-24px cursor-pointer" @click="goBack"></view>
     </template>
-    <template #center>
+    <template #title>
       <view class="m-navbar-title">{{ title }}</view>
     </template>
     <template #right>
@@ -27,7 +33,7 @@
         </view>
       </slot>
     </template>
-  </up-navbar>
+  </wd-navbar>
 </template>
 
 <script setup lang="ts">

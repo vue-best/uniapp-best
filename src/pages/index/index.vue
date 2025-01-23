@@ -5,8 +5,8 @@
     <view class="text-area">
       <view class="title">{{ $tt('index.lang.params', { appName }) }}</view>
     </view>
-    <u-button type="primary" text="确定"></u-button>
-    <u-button @click="onTest">前往 Auth 页面</u-button>
+    <wd-button>确定</wd-button>
+    <wd-button @click="onTest">前往 Auth 页面</wd-button>
   </view>
   <MTabBar></MTabBar>
 </template>

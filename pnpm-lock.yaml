@@ -89,6 +89,9 @@ importers:
       vue-i18n:
         specifier: ^9.13.1
         version: 9.13.1(vue@3.4.27(typescript@5.4.5))
+      wot-design-uni:
+        specifier: ^1.6.1
+        version: 1.6.1(vue@3.4.27(typescript@5.4.5))
     devDependencies:
       '@commitlint/cli':
         specifier: ^19.3.0
@@ -5826,6 +5829,12 @@ packages:
   word-wrap@1.2.5:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
+
+  wot-design-uni@1.6.1:
+    resolution: {integrity: sha512-/aIVNsKUoBD7Hz/xUL6oV4aFtpjXbr/6L2xlLXfda2sSk4IqrTVsmCul19fYjvNRP2hyd+lWwLvwFr9DJ9PlwQ==}
+    engines: {HBuilderX: ^3.8.7}
+    peerDependencies:
+      vue: '>=3.2.47'
 
   wrap-ansi@7.0.0:
     resolution: {integrity: sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==}
@@ -13079,6 +13088,10 @@ snapshots:
       isexe: 2.0.0
 
   word-wrap@1.2.5: {}
+
+  wot-design-uni@1.6.1(vue@3.4.27(typescript@5.4.5)):
+    dependencies:
+      vue: 3.4.27(typescript@5.4.5)
 
   wrap-ansi@7.0.0:
     dependencies:

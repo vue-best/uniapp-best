@@ -8,16 +8,25 @@
       :animation="originNavBarStyle.animation"
     />
   </page-meta>
-  <slot></slot>
+  <view
+    class="safe-area-inset-top bg-transparent"
+    :style="{ height: safeAreaInsetTop + 'px' }"
+  ></view>
+  <wd-config-provider :theme="theme">
+    <slot></slot>
+  </wd-config-provider>
 </template>
 
 <script setup lang="ts">
+  import { useSafeAreaInsetTop } from '@/hooks/useSafeAreaInsetTop'
   import { onLaunch, onShow } from '@dcloudio/uni-app'
   import { useAppStore } from '@/stores/modules/appStore'
 
   defineOptions({ name: 'MSys' })
 
+  const { safeAreaInsetTop } = useSafeAreaInsetTop()
   const appStore = useAppStore()
+  const theme = computed(() => (appStore.isDark ? 'dark' : 'light'))
 
   const setBarStyle = () => {
     if (appStore.isDark) {

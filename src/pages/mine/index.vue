@@ -26,7 +26,7 @@
   <MMCard :space="true" direction="vertical">
     <view class="flex justify-between">
       <view>{{ $tt('index.dark') }}</view>
-      <up-switch v-model="appStore.isDark"></up-switch>
+      <wd-switch v-model="appStore.isDark"></wd-switch>
     </view>
     <view class="flex justify-between">
       <view>{{ $tt('index.language') }}</view>
@@ -34,19 +34,19 @@
         <view>
           {{ appStore.langs.find((item) => item.value === appStore.lang).label }}
         </view>
-        <up-picker
+        <wd-picker
           :show="showLang"
           :columns="langs"
           key-name="label"
           @cancel="cancel"
           @confirm="confirm"
-        ></up-picker>
+        ></wd-picker>
       </view>
     </view>
   </MMCard>
-  <up-button type="primary" class="btn-primary" @click="handleConfirmLogout">
+  <wd-button type="primary" class="btn-primary" @click="handleConfirmLogout">
     {{ $tt('index.logout') }}
-  </up-button>
+  </wd-button>
   <up-modal :show="logoutShow">
     <view class="text-18px py-24px color-text-1">确认退出登录？</view>
     <template #confirmButton>

@@ -10,13 +10,13 @@
         </view>
       </view>
     </template>
-    <up-swiper
+    <wd-swiper
       v-else
       :list="list"
       height="100vh"
       :autoplay="false"
       @click="onTapSwiper"
-    ></up-swiper>
+    ></wd-swiper>
   </view>
 </template>
 
@@ -46,11 +46,11 @@
       .getUserInfoAction()
       .then((res) => {
         if (res) {
-          setTimeout(() => {
-            uni.switchTab({
-              url: '/pages/index/index',
-            })
-          }, 2000)
+          // setTimeout(() => {
+          // uni.switchTab({
+          //   url: '/pages/index/index',
+          // })
+          // }, 2000)
         } else {
           uni.reLaunch({
             url: '/pages/login/index',
@@ -82,6 +82,9 @@
           -webkit-text-fill-color: transparent;
         }
       }
+    }
+    :deep(.wd-swiper__track) {
+      @apply rounded-0px;
     }
   }
 </style>

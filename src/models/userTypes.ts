@@ -1,6 +1,6 @@
 export interface UserState {
   isPrivacyShowed: boolean
-  isInstall: boolean
+  isInstall: boolean // 是否显示引导页，显示过一次后就不在显示
   token: string
   userInfo: Employees
   storageLoginInfo: ILogin

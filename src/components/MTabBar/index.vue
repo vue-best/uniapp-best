@@ -1,50 +1,54 @@
 <template>
-  <up-tabbar
-    :value="appStore.selectedTabbar"
-    class="m-tabbar"
+  <wd-tabbar
+    :model-value="appStore.selectedTabbar"
+    custom-class="m-tabbar"
     :fixed="true"
     :z-index="99"
     :placeholder="true"
     :safe-area-inset-bottom="true"
     @change="handleChange"
   >
-    <up-tabbar-item v-for="(item, index) in tabbarList" :key="index" :text="item.text">
-      <template #active-icon>
-        <image class="tabbar-icon" :src="`/${item.selectedIconPath}`"></image>
+    <wd-tabbar-item v-for="(item, index) in tabbarList" :key="index" :title="item.text">
+      <template #icon>
+        <image
+          v-if="appStore.selectedTabbar === index"
+          class="tabbar-icon"
+          :src="`/${item.selectedIconPath}`"
+        ></image>
+        <image v-else class="tabbar-icon" :src="`/${item.iconPath}`"></image>
       </template>
-      <template #inactive-icon>
-        <image class="tabbar-icon" :src="`/${item.iconPath}`"></image>
-      </template>
-    </up-tabbar-item>
-  </up-tabbar>
+    </wd-tabbar-item>
+  </wd-tabbar>
 </template>
 
 <script setup lang="ts">
   import { tabBar } from '@/pages.json'
   import { useAppStore } from '@/stores/modules/appStore'
 
-  defineOptions({ name: 'MTabBar' })
+  defineOptions({
+    name: 'MTabBar',
+    options: {
+      styleIsolation: 'shared',
+    },
+  })
 
   const appStore = useAppStore()
   const tabbarList = ref(tabBar.list)
 
-  const handleChange = (val: number) => {
-    appStore.setTabbar(val)
+  const handleChange = (data: any) => {
+    appStore.setTabbar(data.value)
     uni.switchTab({
-      url: `/${tabbarList.value[val].pagePath}`,
+      url: `/${tabbarList.value[data.value].pagePath}`,
     })
   }
 </script>
 
 <style scoped lang="scss">
   .m-tabbar {
-    @apply h-50px;
-    :deep(.u-tabbar__content) {
-      @apply bg-bg-card;
-      border-color: var(--border-color-1) !important;
-    }
+    @apply h-50px bg-bg-card;
+    border-color: var(--border-color-1) !important;
     .tabbar-icon {
-      @apply wh-32px;
+      @apply wh-20px;
     }
   }
 </style>
