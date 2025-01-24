@@ -29,7 +29,7 @@ pnpm dev:h5
 
 ## 技术栈
 
-uniapp + vue3 + uview-plus + vite5 + pinia + typescript + unocss + sass
+uniapp + vue3 + wot design uni + vite5 + pinia + typescript + unocss + sass
 
 ## 功能
 

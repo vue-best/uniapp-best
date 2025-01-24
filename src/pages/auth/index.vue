@@ -12,7 +12,7 @@
   function alert() {
     message
       .alert({
-        msg: '暂无权限访问该页面，请先登录',
+        title: '暂无权限访问该页面，请先登录',
       })
       .then(() => {
         handleConfirm()

@@ -3,7 +3,7 @@
     :model-value="appStore.selectedTabbar"
     custom-class="m-tabbar"
     :fixed="true"
-    :z-index="99"
+    :z-index="11"
     :placeholder="true"
     :safe-area-inset-bottom="true"
     @change="handleChange"
@@ -21,6 +21,14 @@
   </wd-tabbar>
 </template>
 
+<script lang="ts">
+  export default {
+    // 将自定义节点设置成虚拟的，更加接近Vue组件的表现，可以去掉微信小程序自定义组件多出的最外层标签
+    options: {
+      virtualHost: true,
+    },
+  }
+</script>
 <script setup lang="ts">
   import { tabBar } from '@/pages.json'
   import { useAppStore } from '@/stores/modules/appStore'

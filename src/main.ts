@@ -1,6 +1,5 @@
 import { createSSRApp } from 'vue'
 import * as Pinia from 'pinia'
-import uviewPlus from 'uview-plus'
 import 'virtual:uno.css'
 import 'virtual:svg-icons-register'
 
@@ -17,7 +16,6 @@ export function createApp() {
   setupI18n(app)
   setupStores(app)
   setupInterceptors(app)
-  app.use(uviewPlus)
 
   return {
     app,

@@ -1,8 +1,8 @@
 <template>
-  <view class="m-footer">
-    <view>UniApp Best</view>
-    <view>2024-{{ new Date().getFullYear() }} Ⓒ Vue Best</view>
-  </view>
+  <view
+    class="safe-area-inset-top bg-transparent"
+    :style="{ height: safeAreaInsetTop + 'px' }"
+  ></view>
 </template>
 
 <script lang="ts">
@@ -14,11 +14,9 @@
   }
 </script>
 <script setup lang="ts">
-  defineOptions({ name: 'MFooter' })
-</script>
+  import { useSafeAreaInsetTop } from '@/hooks/useSafeAreaInsetTop'
 
-<style scoped lang="scss">
-  .m-footer {
-    @apply text-12px text-center color-gray my-24px;
-  }
-</style>
+  defineOptions({ name: 'MSafeAreaTop' })
+
+  const { safeAreaInsetTop } = useSafeAreaInsetTop()
+</script>

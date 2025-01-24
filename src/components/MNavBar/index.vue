@@ -1,10 +1,12 @@
 <template>
   <wd-navbar
     ref="mNavBarRef"
-    v-bind="$attrs"
-    class="m-navbar"
+    :bordered="false"
     placeholder
     :custom-style="{ background: bgColor }"
+    class="m-navbar"
+    :safe-area-inset-top="true"
+    v-bind="$attrs"
   >
     <template #left>
       <view v-if="notBack"></view>
@@ -36,6 +38,14 @@
   </wd-navbar>
 </template>
 
+<script lang="ts">
+  export default {
+    // 将自定义节点设置成虚拟的，更加接近Vue组件的表现，可以去掉微信小程序自定义组件多出的最外层标签
+    options: {
+      virtualHost: true,
+    },
+  }
+</script>
 <script setup lang="ts">
   export interface RightMenuItem {
     icon?: string
@@ -84,7 +94,7 @@
 <style scoped lang="scss">
   .m-navbar {
     .m-navbar-title {
-      @apply text-16px color-text-1;
+      @apply text-14px color-text-1;
     }
     .right-box {
       @apply relative w-full z-1;

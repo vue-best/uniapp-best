@@ -1,5 +1,5 @@
 <template>
-  <up-modal :show="show" class="" :z-index="0">
+  <view>
     <view class="relative w-100px h-250px">
       <view class="text-16px font-600 text-center mb-30px">UniApp Best 个人信息保护政策</view>
       <web-view src="https://zh.uniapp.dcloud.io/" class="relative mt-30px h-400px"></web-view>
@@ -10,7 +10,7 @@
         <view class="btn-primary flex-1" @click="onAgree">同意</view>
       </view>
     </template>
-  </up-modal>
+  </view>
 </template>
 
 <script setup lang="ts">

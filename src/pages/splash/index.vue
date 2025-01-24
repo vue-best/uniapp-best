@@ -46,11 +46,11 @@
       .getUserInfoAction()
       .then((res) => {
         if (res) {
-          // setTimeout(() => {
-          // uni.switchTab({
-          //   url: '/pages/index/index',
-          // })
-          // }, 2000)
+          setTimeout(() => {
+            uni.switchTab({
+              url: '/pages/index/index',
+            })
+          }, 2000)
         } else {
           uni.reLaunch({
             url: '/pages/login/index',

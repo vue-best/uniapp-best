@@ -11,6 +11,14 @@
   </view>
 </template>
 
+<script lang="ts">
+  export default {
+    // 将自定义节点设置成虚拟的，更加接近Vue组件的表现，可以去掉微信小程序自定义组件多出的最外层标签
+    options: {
+      virtualHost: true,
+    },
+  }
+</script>
 <script setup lang="ts">
   defineOptions({ name: 'MCard' })
 
@@ -36,6 +44,7 @@
       justify: 'start',
     }
   )
+  const defaultSlot = useSlots().default
 
   const spaceClass = computed(() => {
     if (props.space) {
@@ -54,5 +63,17 @@
 </script>
 
 <style scoped lang="scss">
-  @import './styles';
+  .m-card {
+    @apply my-12px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 20%);
+    .m-card-item {
+      @apply w-full;
+    }
+    .m-card-spacer {
+      @apply h-1px w-full bg-border-1 my-4px;
+    }
+    .m-card-spacer-horiz {
+      @apply h-20px w-1px bg-border-1 my-4px;
+    }
+  }
 </style>

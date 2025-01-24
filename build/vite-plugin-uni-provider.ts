@@ -15,7 +15,7 @@ export interface Options {
 export default function (options: Partial<Options> = {}) {
   let {
     pagesRE = /src[\/\\]pages[\/\\]((?!.+(component(s)?|static).+).)*\.vue$/,
-    name = 'MSys',
+    name = 'MConfigProvider',
     pluginName = 'uni-provider',
     DEBUG = process.env.DEBUG,
   } = options
