@@ -85,6 +85,7 @@
   }
   const handleConfirmLogout = () => {
     logoutShow.value = true
+    onLogout()
   }
   const handleConfirm = () => {
     onLogout()
@@ -93,7 +94,7 @@
     userStore.logoutAction().then((res) => {
       if (res) {
         uni.reLaunch({
-          url: '/pages/login/index',
+          url: '/subPages/login/index',
         })
       }
     })

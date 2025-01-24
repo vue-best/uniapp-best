@@ -36,7 +36,7 @@
   const onTapSwiper = (index: number) => {
     if (index === 2) {
       uni.navigateTo({
-        url: '/pages/login/index',
+        url: '/subPages/login/index',
       })
     }
   }
@@ -53,13 +53,13 @@
           }, 2000)
         } else {
           uni.reLaunch({
-            url: '/pages/login/index',
+            url: '/subPages/login/index',
           })
         }
       })
       .catch((err) => {
         uni.reLaunch({
-          url: '/pages/login/index',
+          url: '/subPages/login/index',
         })
       })
   })

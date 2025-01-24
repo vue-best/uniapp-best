@@ -11,7 +11,7 @@ export function checkStatus(err: any) {
     case 401:
       userStore.logoutAction()
       uni.navigateTo({
-        url: '/pages/login/index',
+        url: '/subPages/login/index',
       })
       errMessage = '登录超时，请重新登录'
       break

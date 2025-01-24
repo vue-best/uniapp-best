@@ -17,7 +17,7 @@
 
   const onTest = () => {
     uni.navigateTo({
-      url: '/pages/test/index',
+      url: '/subPages/test/index',
     })
   }
 

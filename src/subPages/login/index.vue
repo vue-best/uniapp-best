@@ -75,11 +75,11 @@
   })
 
   const goPrivacy = () => {
-    uni.navigateTo({ url: '/pages/privacy/index' })
+    uni.navigateTo({ url: '/subPages/privacy/index' })
   }
 
   const onTest = () => {
-    uni.navigateTo({ url: '/pages/test/index' })
+    uni.navigateTo({ url: '/subPages/test/index' })
   }
 
   const onSubmit = () => {

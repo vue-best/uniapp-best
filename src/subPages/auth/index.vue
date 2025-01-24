@@ -20,7 +20,7 @@
   }
 
   const handleConfirm = () => {
-    uni.reLaunch({ url: '/pages/login/index' })
+    uni.reLaunch({ url: '/subPages/login/index' })
   }
 
   onMounted(() => alert())

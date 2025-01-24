@@ -1,11 +1,21 @@
 import type { App } from 'vue'
-import qs from 'qs'
 import { useUserStore } from '@/stores/modules/userStore'
 
-import { pages } from '@/pages.json'
-
+import { pages, subPackages } from '@/pages.json'
+// 处理分包路由
+const subPages = []
+subPackages.forEach((item) => {
+  if (item.pages && Array.isArray(item.pages)) {
+    item.pages.forEach((p) => {
+      subPages.push({
+        actions: p.actions,
+        path: `${item.root}/${p.path}`,
+      })
+    })
+  }
+})
 // 需要拦截的页面
-const loginBlacklist = pages
+const loginBlacklist = [...pages, ...subPages]
   .filter((p) => p.actions && p.actions.includes('login'))
   .map((p) => `/${p.path}`)
 
@@ -16,7 +26,6 @@ const interceptor = {
     const path = url.split('?')[0]
 
     const isNeedLogin = loginBlacklist.includes(path)
-    console.log('244-', path, loginBlacklist, isNeedLogin)
     // 不需要登录权限的，直接跳转
     if (!isNeedLogin) {
       return true
@@ -27,7 +36,7 @@ const interceptor = {
     }
 
     // 访问的是需要登录权限才能查看的页面，先跳转到提示页面提醒用户
-    const redirectRoute = `/pages/auth/index?redirect=${encodeURIComponent(url)}`
+    const redirectRoute = `/subPages/auth/index?redirect=${encodeURIComponent(url)}`
     uni.navigateTo({ url: redirectRoute })
     return false
   },
