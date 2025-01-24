@@ -35,29 +35,9 @@
 	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/splash/index",
-      "layout": false,
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/login/index",
-      "layout": false,
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
-		{
 			"path": "pages/mine/index",
 			"style": {
 				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/privacy/index",
-			"style": {
-				"navigationBarTitleText": "个人信息保护政策"
 			}
 		},
 		{
@@ -65,20 +45,74 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		}
+	],
+	"subPackages": [
+		{
+			"root": "subPages/splash",
+			"name": "splash",
+			"pages": [
+				{
+					"path": "index",
+					"layout": false,
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}
+			]
 		},
 		{
-			"path": "pages/auth/index",
-			"style": {
-				"navigationStyle": "custom"
-			}
+			"root": "subPages/login",
+			"name": "login",
+			"pages": [
+				{
+					"path": "index",
+					"layout": false,
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}
+			]
 		},
 		{
-			"path": "pages/test/index",
-			"actions": ["login"],
-			"layout": true,
-			"style": {
-				"navigationStyle": "custom"
-			}
+			"root": "subPages/privacy",
+			"name": "privacy",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationBarTitleText": "个人信息保护政策"
+					}
+				}
+			]
+		},
+		{
+			"root": "subPages/auth",
+			"name": "auth",
+			"pages": [
+				{
+					"path": "index",
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}
+			]
+		},
+		{
+			"root": "subPages/test",
+			"name": "test",
+			"pages": [
+				{
+					"path": "index",
+					"actions": [
+						"login"
+					],
+					"layout": true,
+					"style": {
+						"navigationStyle": "custom"
+					}
+				}
+			]
 		}
 	],
 	"globalStyle": {
