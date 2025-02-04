@@ -60,10 +60,10 @@
 
   onLaunch(() => {
     setBarStyle()
-    uni.hideTabBar()
+    // uni.hideTabBar()
   })
   onShow(() => {
     setBarStyle()
-    uni.hideTabBar()
+    // uni.hideTabBar()
   })
 </script>

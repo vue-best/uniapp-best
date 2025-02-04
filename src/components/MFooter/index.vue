@@ -14,7 +14,12 @@
   }
 </script>
 <script setup lang="ts">
-  defineOptions({ name: 'MFooter' })
+  defineOptions({
+    name: 'MFooter',
+    options: {
+      styleIsolation: 'shared',
+    },
+  })
 </script>
 
 <style scoped lang="scss">

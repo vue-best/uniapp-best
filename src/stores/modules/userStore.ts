@@ -10,6 +10,23 @@ export const useUserStore = defineStore('user', {
       isPrivacyShowed: false,
       isInstall: false,
       token: '',
+      curTabBar: 'home',
+      tabbar: [
+        {
+          pagePath: 'pages/index/index',
+          iconPath: 'static/images/main/work.png',
+          selectedIconPath: 'static/images/main/work_1.png',
+          text: '首页',
+          code: 'home',
+        },
+        {
+          pagePath: 'pages/mine/index',
+          iconPath: 'static/images/main/mine.png',
+          selectedIconPath: 'static/images/main/mine_1.png',
+          text: '我的',
+          code: 'mine',
+        },
+      ],
       userInfo: new Employees({}),
       storageLoginInfo: undefined,
       storageUserId: '',
@@ -20,6 +37,9 @@ export const useUserStore = defineStore('user', {
     paths: ['isPrivacyShowed', 'isInstall', 'storageLoginInfo', 'storageUserId', 'userInfo'],
   },
   actions: {
+    setTabBar(val: string) {
+      this.curTabBar = val
+    },
     loginAction(data: ILogin): Promise<LoginRes> {
       return new Promise((resolve, reject) => {
         this.isPrivacyShowed = true
@@ -48,7 +68,7 @@ export const useUserStore = defineStore('user', {
         logout()
           .then((res) => {
             if (res && res.data) {
-              appStore.setTabbar(0)
+              this.setTabBar('index')
               this.$reset()
               resolve(res.data)
             }
@@ -80,16 +100,28 @@ export const useUserStore = defineStore('user', {
     },
     contentListAction(): Promise<string[]> {
       return new Promise((resolve, reject) => {
-        getContentList()
-          .then((res) => {
-            if (res && res.data) {
-              this.contentList = res.data
-              resolve(res.data)
-            }
-          })
-          .catch((error) => {
-            reject(error)
-          })
+        this.contentList = [
+          '1',
+          '2',
+          '3',
+          '4',
+          '5',
+          '6',
+          '7',
+          '8',
+          '9',
+          '10',
+          '11',
+          '12',
+          '13',
+          '14',
+          '15',
+          '16',
+          '17',
+          '18',
+          '19',
+          '20',
+        ]
       })
     },
   },

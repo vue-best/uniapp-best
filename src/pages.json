@@ -8,41 +8,10 @@
 			"^m-(.*)": "@/components/M$1/index.vue"
 		}
 	},
-	"tabBar": {
-		"height": "56px",
-		"fontSize": "12px",
-		"iconWidth": "36px",
-		"color": "#7A7E83",
-		"selectedColor": "#3cc51f",
-		"borderStyle": "black",
-		"backgroundColor": "#ffffff",
-		"list": [
-			{
-				"pagePath": "pages/index/index",
-				"iconPath": "static/images/main/work.png",
-				"selectedIconPath": "static/images/main/work_1.png",
-				"text": "首页",
-				"custom": true
-			},
-			{
-				"pagePath": "pages/mine/index",
-				"iconPath": "static/images/main/mine.png",
-				"selectedIconPath": "static/images/main/mine_1.png",
-				"text": "我的",
-				"custom": true
-			}
-		]
-	},
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/splash/index",
 			"layout": false,
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
-		{
-			"path": "pages/mine/index",
 			"style": {
 				"navigationStyle": "custom"
 			}

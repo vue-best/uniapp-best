@@ -1,15 +1,17 @@
 <template>
-  <Home v-if="curTabBar === 'home'"></Home>
-  <Mine v-else-if="curTabBar === 'mine'"></Mine>
+  <MNavBar title="首页" :not-back="true"></MNavBar>
+  <view class="content">
+    <view :class="`i-custom-${icon}`" class="wh-160px"></view>
+    <view class="text-area">
+      <view class="title">{{ $tt('index.lang.params', { appName }) }}</view>
+    </view>
+    <wd-button>确定</wd-button>
+    <wd-button @click="onTest">查看权限页面</wd-button>
+  </view>
+  <MTabBar></MTabBar>
 </template>
 
 <script setup lang="ts">
-  import { useUserStore } from '@/stores/modules/userStore'
-  import Home from '@/pages/index/home/index.vue'
-  import Mine from '@/pages/index/mine/index.vue'
-
-  const userStore = useUserStore()
-  const curTabBar = computed(() => userStore.curTabBar)
   const icon = ref('logo')
   const appName = ref('uniapp-best')
 

@@ -1,4 +1,5 @@
 <template>
+  <MSafeAreaTop></MSafeAreaTop>
   <view class="splash-container">
     <template v-if="isInstall">
       <view class="splash-mask">
@@ -47,7 +48,7 @@
       .then((res) => {
         if (res) {
           setTimeout(() => {
-            uni.switchTab({
+            uni.reLaunch({
               url: '/pages/index/index',
             })
           }, 2000)
@@ -70,11 +71,11 @@
     .splash-mask {
       @apply flex flex-col  items-center text-center;
       .text {
-        @apply flex items-center color-text-1 text-32px text-center mt-36px;
+        @apply flex items-center color-text-1 text-24px text-center mt-20px;
         letter-spacing: 10px;
         writing-mode: vertical-rl;
         .vue {
-          @apply text-48px font-700 bg-bg-primary;
+          @apply text-28px font-600 bg-bg-primary;
           letter-spacing: 0px;
           background: linear-gradient(315deg, #42d392 25%, #647eff);
           background-clip: text;

@@ -6,7 +6,6 @@ export interface Lang {
 }
 
 export interface AppState {
-  selectedTabbar: number
   isDark: boolean
   lang: string
   langs: Lang[]

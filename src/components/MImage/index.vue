@@ -13,6 +13,9 @@
 <script setup lang="ts">
   defineOptions({
     name: 'MIcon',
+    options: {
+      styleIsolation: 'shared',
+    },
   })
   const props = defineProps<{
     src: string

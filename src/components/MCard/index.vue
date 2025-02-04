@@ -65,7 +65,7 @@
 <style scoped lang="scss">
   .m-card {
     @apply my-12px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 20%);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 10%);
     .m-card-item {
       @apply w-full;
     }

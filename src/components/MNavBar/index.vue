@@ -1,16 +1,16 @@
 <template>
   <wd-navbar
     ref="mNavBarRef"
-    :bordered="false"
     placeholder
-    :custom-style="{ background: bgColor }"
-    class="m-navbar"
+    :bordered="false"
+    :custom-style="`background:
+    ${bgColor}`"
+    custom-class="m-navbar"
     :safe-area-inset-top="true"
     v-bind="$attrs"
   >
     <template #left>
-      <view v-if="notBack"></view>
-      <view v-else class="i-ep-arrow-left wh-24px cursor-pointer" @click="goBack"></view>
+      <view v-if="!notBack" class="i-ep-arrow-left wh-24px cursor-pointer" @click="goBack"></view>
     </template>
     <template #title>
       <view class="m-navbar-title">{{ title }}</view>
@@ -53,7 +53,13 @@
     command: string
   }
 
-  defineOptions({ name: 'MNavBar' })
+  defineOptions({
+    name: 'MNavBar',
+    // 小程序开启覆盖组件库样式
+    options: {
+      styleIsolation: 'shared',
+    },
+  })
 
   withDefaults(
     defineProps<{
@@ -91,8 +97,13 @@
   }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   .m-navbar {
+    .wd-navbar__left {
+      view {
+        @apply flex items-center;
+      }
+    }
     .m-navbar-title {
       @apply text-14px color-text-1;
     }

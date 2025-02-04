@@ -1,5 +1,5 @@
 <template>
-  <MNavBar title="我的" :not-back="true"></MNavBar>
+  <MSafeAreaTop></MSafeAreaTop>
   <MContent>
     <view class="user">
       <view class="user-avatar">
@@ -99,11 +99,19 @@
       }
     })
   }
+
+  onMounted(() => {
+    console.log('mine mounted----')
+  })
 </script>
 
 <style scoped lang="scss">
+  page {
+    @apply bg-red;
+  }
+
   .user {
-    @apply flex items-center gap-8px;
+    @apply flex items-center gap-8px h-full;
     .user-avatar {
       @apply flex-center wh-54px rounded-50% bg-bg-card;
     }

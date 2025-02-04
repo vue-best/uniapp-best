@@ -1,7 +1,13 @@
 export interface UserState {
   isPrivacyShowed: boolean
-  isInstall: boolean // 是否显示引导页，显示过一次后就不在显示
+  /**
+   * 是否显示引导页，显示过一次后就不在显示
+   */
+  isInstall: boolean
   token: string
+  /** 当前显示的 tabbar */
+  curTabBar: string
+  tabbar: any[]
   userInfo: Employees
   storageLoginInfo: ILogin
   storageUserId: string

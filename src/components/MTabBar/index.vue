@@ -1,17 +1,23 @@
 <template>
   <wd-tabbar
-    :model-value="appStore.selectedTabbar"
+    :model-value="userStore.curTabBar"
     custom-class="m-tabbar"
+    shape="round"
     :fixed="true"
     :z-index="11"
     :placeholder="true"
     :safe-area-inset-bottom="true"
     @change="handleChange"
   >
-    <wd-tabbar-item v-for="(item, index) in tabbarList" :key="index" :title="item.text">
+    <wd-tabbar-item
+      v-for="item in tabbarList"
+      :key="item.code"
+      :name="item.code"
+      :title="item.text"
+    >
       <template #icon>
         <image
-          v-if="appStore.selectedTabbar === index"
+          v-if="userStore.curTabBar === item.code"
           class="tabbar-icon"
           :src="`/${item.selectedIconPath}`"
         ></image>
@@ -30,8 +36,7 @@
   }
 </script>
 <script setup lang="ts">
-  import { tabBar } from '@/pages.json'
-  import { useAppStore } from '@/stores/modules/appStore'
+  import { useUserStore } from '@/stores/modules/userStore'
 
   defineOptions({
     name: 'MTabBar',
@@ -40,20 +45,17 @@
     },
   })
 
-  const appStore = useAppStore()
-  const tabbarList = ref(tabBar.list)
+  const userStore = useUserStore()
+  const tabbarList = ref(userStore.tabbar)
 
   const handleChange = (data: any) => {
-    appStore.setTabbar(data.value)
-    uni.switchTab({
-      url: `/${tabbarList.value[data.value].pagePath}`,
-    })
+    userStore.setTabBar(data.value)
   }
 </script>
 
 <style scoped lang="scss">
   .m-tabbar {
-    @apply h-50px bg-bg-card;
+    @apply h-50px bg-bg-card mb-10px;
     border-color: var(--border-color-1) !important;
     .tabbar-icon {
       @apply wh-20px;
