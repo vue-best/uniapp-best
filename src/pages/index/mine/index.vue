@@ -1,5 +1,10 @@
 <template>
-  <MSafeAreaTop></MSafeAreaTop>
+  <MNavBar
+    :title="scrollPage ? '我的' : ''"
+    :fixed="scrollPage"
+    bg-color="#e8fff2"
+    :not-back="true"
+  ></MNavBar>
   <MContent custom-class="mine-content">
     <view class="user">
       <view class="user-avatar">
@@ -111,6 +116,7 @@
   import { useAppStore } from '@/stores/modules/appStore'
 
   defineOptions({ name: 'Mine' })
+  withDefaults(defineProps<{ scrollPage: boolean }>(), { scrollPage: false })
 
   const userStore = useUserStore()
   const appStore = useAppStore()
@@ -152,7 +158,6 @@
 
 <style lang="scss">
   page {
-    @apply bg-red h-full;
     background: linear-gradient(180deg, #e8fff2 0%, var(--bg-page) 30%);
   }
 </style>

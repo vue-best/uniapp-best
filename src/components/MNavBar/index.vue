@@ -9,8 +9,11 @@
     :safe-area-inset-top="true"
     v-bind="$attrs"
   >
-    <template #left>
-      <view v-if="!notBack" class="i-ep-arrow-left wh-24px cursor-pointer" @click="goBack"></view>
+    <!-- <template #left>
+      <view v-if="!notBack" class="i-ep-arrow-left wh-20px cursor-pointer" @click="goBack"></view>
+    </template> -->
+    <template #capsule>
+      <wd-navbar-capsule v-if="!notBack" @back="goBack" @back-home="goHome" />
     </template>
     <template #title>
       <view class="m-navbar-title">{{ title }}</view>
@@ -85,6 +88,10 @@
 
   const goBack = () => {
     uni.navigateBack()
+  }
+
+  const goHome = () => {
+    uni.reLaunch({ url: '/pages/index/index' })
   }
 
   const triggerMore = () => {

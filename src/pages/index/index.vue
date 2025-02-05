@@ -1,7 +1,14 @@
 <template>
-  <Home v-if="curTabBar === 'home'"></Home>
-  <Mine v-else-if="curTabBar === 'mine'"></Mine>
+  <Home v-if="curTabBar === 'home'" :scroll-page="scrollPage"></Home>
+  <Mine v-else-if="curTabBar === 'mine'" :scroll-page="scrollPage"></Mine>
 </template>
+
+<script lang="ts">
+  // 主动声明 onPageScroll ,通知小程序该页面需要 onPageScroll
+  export default {
+    onPageScroll() {},
+  }
+</script>
 
 <script setup lang="ts">
   import { onPageScroll } from '@dcloudio/uni-app'
@@ -12,14 +19,13 @@
 
   const userStore = useUserStore()
   const curTabBar = computed(() => userStore.curTabBar)
+  const scrollPage = ref(false)
 
   onPageScroll((e) => {
-    console.log('-----page----', 1)
     if (e.scrollTop < 44) {
-      // this.bgColorOpacity = (e.scrollTop / 44) * 1
+      scrollPage.value = false
     } else if (e.scrollTop > 44) {
-      // this.bgColorOpacity = 1
-      console.log('-----page----', 2)
+      scrollPage.value = true
     }
   })
 

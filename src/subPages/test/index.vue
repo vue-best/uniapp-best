@@ -1,5 +1,5 @@
 <template>
-  <MNavBar title="列表" :right-menu="rightMenu" @right-click="handleRightClick"></MNavBar>
+  <MNavBar title="列表" fixed :right-menu="rightMenu" @right-click="handleRightClick"></MNavBar>
   <view class="flex flex-col gap-16px">
     <template v-for="item in userStore.contentList" :key="item">
       <view>{{ item }}</view>
@@ -7,10 +7,22 @@
   </view>
 </template>
 
+<script lang="ts">
+  // 主动声明 onPageScroll ,通知小程序该页面需要 onPageScroll
+  export default {
+    onPageScroll() {},
+  }
+</script>
+
 <script setup lang="ts">
+  import { onPageScroll } from '@dcloudio/uni-app'
   import { useUserStore } from '@/stores/modules/userStore'
 
   defineOptions({ name: 'Auth' })
+
+  onPageScroll((e) => {
+    console.log(e) // {scrollTop: 0}
+  })
 
   const userStore = useUserStore()
   const rightMenu = ref([
