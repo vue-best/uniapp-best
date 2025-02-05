@@ -5,7 +5,7 @@
       padding: `${padding}px`,
       background: `${bgColor}`,
     }"
-    :class="[`${rounded ? 'rounded-12px' : ''}`, `${spaceClass}`]"
+    :class="[`${rounded ? 'rounded-10px' : ''}`, `${spaceClass}`]"
   >
     <slot></slot>
   </view>
@@ -20,7 +20,12 @@
   }
 </script>
 <script setup lang="ts">
-  defineOptions({ name: 'MCard' })
+  defineOptions({
+    name: 'MCard',
+    options: {
+      styleIsolation: 'shared',
+    },
+  })
 
   const props = withDefaults(
     defineProps<{
@@ -44,11 +49,10 @@
       justify: 'start',
     }
   )
-  const defaultSlot = useSlots().default
 
   const spaceClass = computed(() => {
     if (props.space) {
-      let cls = `flex gap-8px items-${props.align}`
+      let cls = `flex gap-16px items-${props.align}`
       if (props.direction === 'vertical') {
         cls = cls + ' flex-col'
       }
@@ -65,7 +69,6 @@
 <style scoped lang="scss">
   .m-card {
     @apply my-12px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 10%);
     .m-card-item {
       @apply w-full;
     }

@@ -1,36 +1,86 @@
 <template>
   <MSafeAreaTop></MSafeAreaTop>
-  <MContent>
+  <MContent custom-class="mine-content">
     <view class="user">
       <view class="user-avatar">
-        <view class="i-ep-user wh-32px"></view>
+        <view class="i-custom-avatar wh-54px rounded-50%"></view>
       </view>
       <view class="user-name">
-        <view>{{ userStore.userInfo.name }}</view>
+        <view class="font-500">{{ userStore.userInfo.name }}</view>
         <view>12345678901</view>
       </view>
     </view>
-    <MCard :space="true" direction="horizontal" justify="between" align="center">
-      <view class="text-center">
-        <view class="i-ep-star-filled wh-36px"></view>
-        <view>{{ $tt('mine.star') }}</view>
+    <MCard>
+      <view class="flex items-center justify-between">
+        <text class="font-500">我的订单</text>
+        <view class="flex items-center">
+          <text class="color-text-place text-13px">全部</text>
+          <text class="i-ep-arrow-right wh-14px color-text-place"></text>
+        </view>
       </view>
-      <view class="text-center">
-        <view class="i-ep-picture-filled wh-36px"></view>
-        <view>{{ $tt('mine.image') }}</view>
+      <view class="flex justify-between mt-20px">
+        <view class="text-center">
+          <view class="i-custom-zhifu wh-36px"></view>
+          <view>待支付</view>
+        </view>
+        <view class="text-center">
+          <view class="i-custom-fahuo wh-36px"></view>
+          <view>待发货</view>
+        </view>
+        <view class="text-center">
+          <view class="i-custom-shouhuo wh-36px"></view>
+          <view>待收货</view>
+        </view>
+        <view class="text-center">
+          <view class="i-custom-shouhou wh-36px"></view>
+          <view>售后</view>
+        </view>
       </view>
-      <view class="text-center">
-        <view class="i-ep-comment wh-36px"></view>
-        <view>{{ $tt('mine.message') }}</view>
+    </MCard>
+    <view class="ticket-info">
+      <view class="font-700 mb-12px text-16px color-#333">分享优惠给好友</view>
+      <text
+        class="bg-white rounded-30px px-16px py-4px font-500 text-13px border-1px border-solid border-#333 w-auto color-#333"
+      >
+        立即分享
+      </text>
+    </view>
+    <MCard space direction="vertical">
+      <view class="flex justify-between items-center w-full text-14px">
+        <view class="flex items-center gap-6px">
+          <view class="i-ep-ticket wh-20px color-#09AB4F"></view>
+          <text>优惠券</text>
+        </view>
+        <view class="i-ep-arrow-right wh-16px color-text-place"></view>
+      </view>
+      <view class="flex justify-between items-center w-full text-14px">
+        <view class="flex items-center gap-6px">
+          <view class="i-ep-setting wh-20px color-#09AB4F"></view>
+          <text>基本设置</text>
+        </view>
+        <view class="i-ep-arrow-right wh-16px color-text-place"></view>
+      </view>
+      <view class="flex justify-between items-center w-full text-14px">
+        <view class="flex items-center gap-6px">
+          <view class="i-ep-phone wh-20px color-#09AB4F"></view>
+          <text>联系客服</text>
+        </view>
+        <view class="i-ep-arrow-right wh-16px color-text-place"></view>
       </view>
     </MCard>
     <MCard space direction="vertical">
-      <view class="flex justify-between items-center w-full">
-        <view>{{ $tt('index.dark') }}</view>
+      <view class="flex justify-between items-center w-full text-14px">
+        <view class="flex items-center gap-6px">
+          <view class="i-ep-open wh-20px color-#09AB4F"></view>
+          <view>{{ $tt('index.dark') }}</view>
+        </view>
         <wd-switch v-model="appStore.isDark"></wd-switch>
       </view>
-      <view class="flex justify-between items-center w-full">
-        <view>{{ $tt('index.language') }}</view>
+      <view class="flex justify-between items-center w-full text-14px">
+        <view class="flex items-center gap-6px">
+          <view class="i-ep-info-filled wh-20px color-#09AB4F"></view>
+          <view>{{ $tt('index.language') }}</view>
+        </view>
         <wd-picker
           v-model="appStore.lang"
           :show="showLang"
@@ -41,26 +91,22 @@
           @confirm="confirm"
         ></wd-picker>
       </view>
-    </MCard>
-    <wd-button type="primary" class="btn-primary" @click="handleConfirmLogout">
-      {{ $tt('index.logout') }}
-    </wd-button>
-    <wd-message-box />
-    <!-- <up-modal :show="logoutShow">
-      <view class="text-18px py-24px color-text-1">确认退出登录？</view>
-      <template #confirmButton>
-        <view class="flex justify-between text-center gap-20px">
-          <view class="btn-default flex-1" @click="handleCancel">取消</view>
-          <view class="btn-primary flex-1" @click="handleConfirm">确定</view>
+      <view class="flex justify-between items-center w-full text-14px" @click="handleConfirmLogout">
+        <view class="flex items-center gap-6px">
+          <view class="i-ep-switch-button wh-20px color-#09AB4F"></view>
+          <text>{{ $tt('index.logout') }}</text>
         </view>
-      </template>
-    </up-modal> -->
+        <view class="i-ep-arrow-right wh-16px color-text-place"></view>
+      </view>
+    </MCard>
+    <MDialog :visible="logoutShow" @cancel="handleCancel" @confirm="handleConfirm">
+      <view class="text-18px py-24px color-text-1">确认退出登录？</view>
+    </MDialog>
   </MContent>
   <MTabBar></MTabBar>
 </template>
 
 <script setup lang="ts">
-  import { useMessage } from 'wot-design-uni'
   import { useUserStore } from '@/stores/modules/userStore'
   import { useAppStore } from '@/stores/modules/appStore'
 
@@ -85,7 +131,6 @@
   }
   const handleConfirmLogout = () => {
     logoutShow.value = true
-    onLogout()
   }
   const handleConfirm = () => {
     onLogout()
@@ -105,15 +150,26 @@
   })
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   page {
-    @apply bg-red;
+    @apply bg-red h-full;
+    background: linear-gradient(180deg, #e8fff2 0%, var(--bg-page) 30%);
   }
-
+</style>
+<style scoped lang="scss">
+  :deep(.mine-content) {
+    @apply h-full;
+  }
   .user {
-    @apply flex items-center gap-8px h-full;
+    @apply flex items-center gap-16px mb-24px;
     .user-avatar {
       @apply flex-center wh-54px rounded-50% bg-bg-card;
     }
+  }
+  .ticket-info {
+    @apply h-60px rounded-10px p-16px;
+    background-image: url('@/static/images/ticket-bg.svg');
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
   }
 </style>

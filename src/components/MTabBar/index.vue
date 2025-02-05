@@ -1,7 +1,7 @@
 <template>
   <wd-tabbar
     :model-value="userStore.curTabBar"
-    custom-class="m-tabbar"
+    custom-class="m-tabbar mb-10px"
     shape="round"
     :fixed="true"
     :z-index="11"
@@ -55,7 +55,7 @@
 
 <style scoped lang="scss">
   .m-tabbar {
-    @apply h-50px bg-bg-card mb-10px;
+    @apply h-50px bg-bg-page mb-10px;
     border-color: var(--border-color-1) !important;
     .tabbar-icon {
       @apply wh-20px;

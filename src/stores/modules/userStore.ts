@@ -27,7 +27,9 @@ export const useUserStore = defineStore('user', {
           code: 'mine',
         },
       ],
-      userInfo: new Employees({}),
+      userInfo: new Employees({
+        name: '薛定谔的猫',
+      }),
       storageLoginInfo: undefined,
       storageUserId: '',
       contentList: [],
@@ -63,24 +65,27 @@ export const useUserStore = defineStore('user', {
       })
     },
     logoutAction(): Promise<string> {
-      const appStore = useAppStore()
       return new Promise((resolve, reject) => {
-        logout()
-          .then((res) => {
-            if (res && res.data) {
-              this.setTabBar('index')
-              this.$reset()
-              resolve(res.data)
-            }
-          })
-          .catch((error) => {
-            reject(error)
-          })
+        this.setTabBar('index')
+        uni.clearStorageSync()
+        this.$reset()
+        resolve('')
+        // logout()
+        //   .then((res) => {
+        //     if (res && res.data) {
+        //       this.setTabBar('index')
+        //       this.$reset()
+        //       resolve(res.data)
+        //     }
+        //   })
+        //   .catch((error) => {
+        //     reject(error)
+        //   })
       })
     },
     getUserInfoAction(): Promise<Employees> {
       return new Promise((resolve, reject) => {
-        this.userInfo = this.storageLoginInfo as any
+        // this.userInfo = this.storageLoginInfo as any
         return resolve({})
         // if (this.storageUserId) {
         //   getUserInfo(this.storageUserId)

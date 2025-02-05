@@ -33,7 +33,7 @@
       </view>
       <view class="flex flex-col">
         <wd-button type="primary" class="btn-primary" @click="onSubmit">登录</wd-button>
-        <wd-button type="text" class="mt-24px" @click="onTest">查看 Auth 页面</wd-button>
+        <wd-button type="text" class="mt-24px" @click="onTest">查看权限页面</wd-button>
       </view>
     </view>
     <MFooter></MFooter>

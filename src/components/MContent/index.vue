@@ -1,5 +1,5 @@
 <template>
-  <view class="m-content">
+  <view :class="`m-content ${props.customClass}`">
     <slot></slot>
   </view>
 </template>
@@ -13,14 +13,21 @@
   }
 </script>
 <script setup lang="ts">
-  defineOptions({ name: 'MContent' })
+  defineOptions({
+    name: 'MContent',
+    options: {
+      styleIsolation: 'shared',
+    },
+  })
 
-  withDefaults(
+  const props = withDefaults(
     defineProps<{
       bg?: boolean
+      customClass?: string
     }>(),
     {
       bg: true,
+      customClass: '',
     }
   )
 </script>

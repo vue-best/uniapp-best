@@ -14,6 +14,6 @@
 
 <style lang="scss">
   page {
-    @apply h-full;
+    @apply h-full text-14px;
   }
 </style>

@@ -10,6 +10,7 @@ declare module 'vue' {
     MCard: typeof import('./../src/components/MCard/index.vue')['default']
     MConfigProvider: typeof import('./../src/components/MConfigProvider/index.vue')['default']
     MContent: typeof import('./../src/components/MContent/index.vue')['default']
+    MDialog: typeof import('./../src/components/MDialog/index.vue')['default']
     MFooter: typeof import('./../src/components/MFooter/index.vue')['default']
     MIcon: typeof import('./../src/components/MIcon/index.vue')['default']
     MImage: typeof import('./../src/components/MImage/index.vue')['default']

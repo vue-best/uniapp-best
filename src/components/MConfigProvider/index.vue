@@ -8,7 +8,7 @@
       :animation="originNavBarStyle.animation"
     />
   </page-meta>
-  <wd-config-provider :theme="theme">
+  <wd-config-provider :theme="theme" custom-class="h-full">
     <slot></slot>
   </wd-config-provider>
 </template>

@@ -16,7 +16,12 @@
 <script setup lang="ts">
   import { useSafeAreaInsetTop } from '@/hooks/useSafeAreaInsetTop'
 
-  defineOptions({ name: 'MSafeAreaTop' })
+  defineOptions({
+    name: 'MSafeAreaTop',
+    options: {
+      styleIsolation: 'shared',
+    },
+  })
 
   const { safeAreaInsetTop } = useSafeAreaInsetTop()
 </script>

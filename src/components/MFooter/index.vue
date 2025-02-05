@@ -1,7 +1,7 @@
 <template>
   <view class="m-footer">
-    <view>UniApp Best</view>
-    <view>2024-{{ new Date().getFullYear() }} Ⓒ Vue Best</view>
+    <view>uniapp best</view>
+    <view>2024-{{ new Date().getFullYear() }} Ⓒ vue best</view>
   </view>
 </template>
 
