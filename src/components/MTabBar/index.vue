@@ -27,14 +27,6 @@
   </wd-tabbar>
 </template>
 
-<script lang="ts">
-  export default {
-    // 将自定义节点设置成虚拟的，更加接近Vue组件的表现，可以去掉微信小程序自定义组件多出的最外层标签
-    options: {
-      virtualHost: true,
-    },
-  }
-</script>
 <script setup lang="ts">
   import { useUserStore } from '@/stores/modules/userStore'
 
@@ -42,6 +34,8 @@
     name: 'MTabBar',
     options: {
       styleIsolation: 'shared',
+      // 将自定义节点设置成虚拟的，更加接近Vue组件的表现，可以去掉微信小程序自定义组件多出的最外层标签
+      virtualHost: true,
     },
   })
 
@@ -55,7 +49,7 @@
 
 <style scoped lang="scss">
   .m-tabbar {
-    @apply h-50px bg-bg-page mb-10px;
+    @apply h-50px bg-bg-page;
     border-color: var(--border-color-1) !important;
     .tabbar-icon {
       @apply wh-20px;

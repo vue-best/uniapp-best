@@ -115,7 +115,13 @@
   import { useUserStore } from '@/stores/modules/userStore'
   import { useAppStore } from '@/stores/modules/appStore'
 
-  defineOptions({ name: 'Mine' })
+  defineOptions({
+    name: 'Mine',
+    options: {
+      // 将自定义节点设置成虚拟的，更加接近Vue组件的表现，可以去掉微信小程序自定义组件多出的最外层标签
+      virtualHost: true,
+    },
+  })
   withDefaults(defineProps<{ scrollPage: boolean }>(), { scrollPage: false })
 
   const userStore = useUserStore()
