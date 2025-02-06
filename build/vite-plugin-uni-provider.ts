@@ -2,6 +2,8 @@ import path from 'path'
 import c from 'picocolors'
 import normallize from 'normalize-path'
 
+import { pages, subPackages } from '../src/pages.json'
+
 export interface Options {
   pagesRE: RegExp
   name: string
@@ -12,6 +14,18 @@ export interface Options {
   DEBUG: boolean
 }
 
+// 处理分包路由
+const subPages = []
+subPackages.forEach((item) => {
+  if (item.pages && Array.isArray(item.pages)) {
+    item.pages.forEach((p) => {
+      subPages.push(`${item.root}/${p.path}.vue`)
+    })
+  }
+})
+// 需要拦截的页面
+const pageRouter = [...pages.map((item) => `${item.path}.vue`), ...subPages]
+console.log('pageRouter--', pageRouter)
 export default function (options: Partial<Options> = {}) {
   let {
     pagesRE = /src[\/\\]pages[\/\\]((?!.+(component(s)?|static).+).)*\.vue$/,
@@ -25,7 +39,7 @@ export default function (options: Partial<Options> = {}) {
     enforce: 'pre',
     transform(code, id) {
       id = normalizePagePathFromBase(id)
-      if (pagesRE.test(normalizePagePathFromBase(id))) {
+      if (pageRouter.includes(normalizePagePathFromBase(id))) {
         // 三种情况:
         // 1. 前后都存在页面根级组件 => 不做操作
         // 2. 页面根级组件只存在于第一行 => 第一行修正结束符,最后一行添加结束符
@@ -48,7 +62,7 @@ export default function (options: Partial<Options> = {}) {
   }
 
   function normalizePagePathFromBase(file) {
-    return normallize(path.relative(process.cwd(), file))
+    return normallize(path.relative(process.cwd(), file.replace('src/', '')))
   }
 
   function debug(...args) {
