@@ -41,6 +41,7 @@
     message
       .confirm({
         title: props.title,
+        closeOnClickModal: false,
       })
       .then(() => {
         emits('confirm')

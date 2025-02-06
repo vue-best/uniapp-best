@@ -12,6 +12,14 @@
 </template>
 
 <script setup lang="ts">
+  defineOptions({
+    name: 'Home',
+    options: {
+      // 将自定义节点设置成虚拟的，更加接近Vue组件的表现，可以去掉微信小程序自定义组件多出的最外层标签
+      virtualHost: true,
+    },
+  })
+
   const icon = ref('logo')
   const appName = ref('uniapp-best')
 
@@ -21,9 +29,8 @@
     })
   }
 
-  onLaunch(() => {
-    // 测试
-    uni.setLocale('en')
+  onMounted(() => {
+    console.log('home mounted----')
   })
 </script>
 

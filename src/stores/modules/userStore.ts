@@ -18,6 +18,7 @@ export const useUserStore = defineStore('user', {
           selectedIconPath: 'static/images/main/work_1.png',
           text: '首页',
           code: 'home',
+          show: true,
         },
         {
           pagePath: 'pages/mine/index',
@@ -25,6 +26,7 @@ export const useUserStore = defineStore('user', {
           selectedIconPath: 'static/images/main/mine_1.png',
           text: '我的',
           code: 'mine',
+          show: false,
         },
       ],
       userInfo: new Employees({
@@ -41,6 +43,12 @@ export const useUserStore = defineStore('user', {
   actions: {
     setTabBar(val: string) {
       this.curTabBar = val
+      // 将当前tabbar的show设置为true
+      this.tabbar.forEach((item) => {
+        if (item.code === val && !item.show) {
+          item.show = true
+        }
+      })
     },
     loginAction(data: ILogin): Promise<LoginRes> {
       return new Promise((resolve, reject) => {
@@ -64,12 +72,12 @@ export const useUserStore = defineStore('user', {
         //   })
       })
     },
-    logoutAction(): Promise<string> {
+    logoutAction(): Promise<boolean> {
       return new Promise((resolve, reject) => {
         this.setTabBar('index')
         uni.clearStorageSync()
         this.$reset()
-        resolve('')
+        resolve(true)
         // logout()
         //   .then((res) => {
         //     if (res && res.data) {

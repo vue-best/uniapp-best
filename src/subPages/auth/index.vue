@@ -11,11 +11,15 @@
 
   function alert() {
     message
-      .alert({
+      .confirm({
         title: '暂无权限访问该页面，请先登录',
+        closeOnClickModal: false,
       })
       .then(() => {
         handleConfirm()
+      })
+      .catch(() => {
+        uni.navigateBack()
       })
   }
 

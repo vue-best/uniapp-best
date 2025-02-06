@@ -1,5 +1,4 @@
 <template>
-  <MSafeAreaTop></MSafeAreaTop>
   <view class="splash-container">
     <template v-if="isInstall">
       <view class="splash-mask">
@@ -34,8 +33,8 @@
   const isInstall = computed(() => userStore.isInstall)
   const list = ref([guide1, guide2, guide3])
 
-  const onTapSwiper = (index: number) => {
-    if (index === 2) {
+  const onTapSwiper = ({ index }) => {
+    if (index == 2) {
       uni.navigateTo({
         url: '/subPages/login/index',
       })
@@ -46,16 +45,18 @@
     userStore
       .getUserInfoAction()
       .then((res) => {
-        if (res) {
-          setTimeout(() => {
+        if (isInstall.value) {
+          if (res) {
+            setTimeout(() => {
+              uni.reLaunch({
+                url: '/pages/index/index',
+              })
+            }, 2000)
+          } else {
             uni.reLaunch({
-              url: '/pages/index/index',
+              url: '/subPages/login/index',
             })
-          }, 2000)
-        } else {
-          uni.reLaunch({
-            url: '/subPages/login/index',
-          })
+          }
         }
       })
       .catch((err) => {
@@ -68,6 +69,10 @@
 
 <style scoped lang="scss">
   .splash-container {
+    @apply h-full;
+    :deep(.wd-swiper) {
+      @apply h-full;
+    }
     .splash-mask {
       @apply flex flex-col  items-center text-center;
       .text {

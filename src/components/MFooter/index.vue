@@ -18,6 +18,6 @@
 
 <style scoped lang="scss">
   .m-footer {
-    @apply text-12px text-center color-gray my-24px;
+    @apply text-12px text-center color-gray pt-24px pb-54px bg-transparent;
   }
 </style>

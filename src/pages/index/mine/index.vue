@@ -5,7 +5,7 @@
     bg-color="#e8fff2"
     :not-back="true"
   ></MNavBar>
-  <MContent custom-class="mine-content">
+  <view class="mine-content">
     <view class="user">
       <view class="user-avatar">
         <view class="i-custom-avatar wh-54px rounded-50%"></view>
@@ -107,7 +107,7 @@
     <MDialog :visible="logoutShow" @cancel="handleCancel" @confirm="handleConfirm">
       <view class="text-18px py-24px color-text-1">确认退出登录？</view>
     </MDialog>
-  </MContent>
+  </view>
   <MTabBar></MTabBar>
 </template>
 
@@ -162,14 +162,10 @@
   })
 </script>
 
-<style lang="scss">
-  page {
-    background: linear-gradient(180deg, #e8fff2 0%, var(--bg-page) 30%);
-  }
-</style>
 <style scoped lang="scss">
-  :deep(.mine-content) {
-    @apply h-full;
+  .mine-content {
+    @apply p-12px h-full;
+    background: linear-gradient(180deg, #e8fff2 0%, var(--bg-page) 30%);
   }
   .user {
     @apply flex items-center gap-16px mb-24px;

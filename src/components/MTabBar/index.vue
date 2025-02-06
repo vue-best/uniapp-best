@@ -1,11 +1,10 @@
 <template>
   <wd-tabbar
     :model-value="userStore.curTabBar"
-    custom-class="m-tabbar mb-10px"
+    custom-class="m-tabbar"
     shape="round"
     :fixed="true"
     :z-index="11"
-    :placeholder="true"
     :safe-area-inset-bottom="true"
     @change="handleChange"
   >

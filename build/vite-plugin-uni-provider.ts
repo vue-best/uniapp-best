@@ -25,7 +25,7 @@ subPackages.forEach((item) => {
 })
 // 需要拦截的页面
 const pageRouter = [...pages.map((item) => `${item.path}.vue`), ...subPages]
-console.log('pageRouter--', pageRouter)
+
 export default function (options: Partial<Options> = {}) {
   let {
     pagesRE = /src[\/\\]pages[\/\\]((?!.+(component(s)?|static).+).)*\.vue$/,

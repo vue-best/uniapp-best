@@ -106,7 +106,7 @@
       }
     }
     .m-navbar-title {
-      @apply text-14px color-text-1;
+      @apply text-14px color-#213547;
     }
     .right-box {
       @apply relative w-full z-1;

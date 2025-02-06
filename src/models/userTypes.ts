@@ -1,13 +1,22 @@
+export interface TabBarItem {
+  pagePath: string
+  iconPath: string
+  selectedIconPath: string
+  text: string
+  code: string // 通常用于路由标识或权限码
+  show: boolean // 控制是否展示该导航项，用于keepalive
+}
+
 export interface UserState {
   isPrivacyShowed: boolean
   /**
-   * 是否显示引导页，显示过一次后就不在显示
+   * 是否显示引导页，显示过一次后就不再显示
    */
   isInstall: boolean
   token: string
   /** 当前显示的 tabbar */
   curTabBar: string
-  tabbar: any[]
+  tabbar: TabBarItem[]
   userInfo: Employees
   storageLoginInfo: ILogin
   storageUserId: string

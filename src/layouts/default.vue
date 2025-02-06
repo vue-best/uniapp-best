@@ -23,6 +23,6 @@
 
 <style scoped lang="scss">
   .default-layout {
-    @apply relative flex flex-col flex-1 h-full color-text-1;
+    @apply relative h-full color-text-1;
   }
 </style>

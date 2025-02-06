@@ -3,9 +3,7 @@ import { BasicRes } from '@/models/requestTypes'
 import { ILogin, LoginRes, Employees } from '@/models/userTypes'
 
 export function login(data: ILogin) {
-  return request<BasicRes<LoginRes>>({
-    url: '188758498',
-    method: 'POST',
+  return request.post<BasicRes<LoginRes>>('188758498', {
     header: {},
     data: {
       account: data.account,
@@ -15,10 +13,7 @@ export function login(data: ILogin) {
 }
 
 export function logout() {
-  return request<BasicRes<string>>({
-    url: '188797064',
-    method: 'GET',
-  })
+  return request.get<BasicRes<string>>('188797064')
 }
 
 export function getUserInfo(data: string) {

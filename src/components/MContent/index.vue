@@ -16,11 +16,9 @@
 
   const props = withDefaults(
     defineProps<{
-      bg?: boolean
       customClass?: string
     }>(),
     {
-      bg: true,
       customClass: '',
     }
   )
@@ -28,7 +26,7 @@
 
 <style scoped lang="scss">
   .m-content {
-    @apply relative flex-1 p-12px;
+    @apply relative p-12px;
     &:has(.m-tabbar) {
       :deep(.m-footer) {
         padding-bottom: 25px;
