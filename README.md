@@ -4,6 +4,13 @@
 
 使用 vue3 开发，已配置好**多语言**、**主题切换**等特色功能。
 
+## 支持平台
+
+- h5
+- 小程序
+- ios
+- android
+
 ## 运行
 
 > 环境要求： node >= 18.14.2 pnpm >=9.1.4
@@ -17,6 +24,10 @@ pnpm install
 
 # 启动h5开发环境
 pnpm dev:h5
+# 启动微信小程序开发环境
+pnpm dev:mp-weixin
+# 启动ios开发环境
+pnpm dev:app-ios
 ```
 
 效果图：
@@ -25,7 +36,6 @@ pnpm dev:h5
 <img src="./src/static//images//start1.jpg" width="50%" />
 <img src="./src/static//images//start2.jpg" width="50%" />
 </div>
-
 
 ## 技术栈
 
@@ -47,8 +57,32 @@ uniapp + vue3 + wot design uni + vite5 + pinia + typescript + unocss + sass
 - [x] 代码检查
 - [x] 支持分包
 - [x] 小程序开发
-- [x] 自定义tabbar
-- [ ] 检查升级
+- [x] 自定义 tabbar
+- [x] 自定义 tabbar keepalive效果
+- [ ] app 检查升级
+
+### 路由权限
+
+支持路由权限控制，比如某些页面需要登录才能查看，通过`pages.json` 中的页面配置属性 `actions`配置。
+
+`interceptors/router.ts` 是路由拦截的核心文件，会自动拦截`navigateTo`、`reLaunch`、`redirectTo`等方法的路由跳转，判断是否需要登录，如果需要登录权限，需要登录权限的会跳转到权限提醒页面。
+
+```json
+{
+  "root": "subPages/test",
+  "name": "test",
+  "pages": [
+    {
+      "path": "index",
+      "actions": ["login"],
+      "layout": true,
+      "style": {
+        "navigationStyle": "custom"
+      }
+    }
+  ]
+}
+```
 
 ### 布局设置
 
@@ -62,12 +96,12 @@ uniapp-best 使用 [@uni-helper/vite-plugin-uni-layouts](https://github.com/uni-
 
 ```json
 "pages": [
-		{
-			"path": "pages/splash/index",
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
+  {
+    "path": "pages/splash/index",
+    "style": {
+      "navigationStyle": "custom"
+    }
+  },
 ]
 ```
 
@@ -77,13 +111,13 @@ uniapp-best 使用 [@uni-helper/vite-plugin-uni-layouts](https://github.com/uni-
 
 ```json
 "pages": [
-		{
-			"path": "pages/splash/index",
-      "layout": false,
-			"style": {
-				"navigationStyle": "custom"
-			}
-		},
+  {
+    "path": "pages/splash/index",
+    "layout": false,
+    "style": {
+      "navigationStyle": "custom"
+    }
+  },
 ]
 ```
 
@@ -114,10 +148,10 @@ uniapp-best 使用 [@uni-helper/vite-plugin-uni-layouts](https://github.com/uni-
 uniapp-best 提供了一些基础组件，使用时无需引入，直接使用即可，你可以使用首字母大写驼峰或者字母小写连字符的方式引用。
 
 ```vue
-  <template>
-    <MCard></MCard>
-    <m-card></m-card>
-  </template>
+<template>
+  <MCard></MCard>
+  <m-card></m-card>
+</template>
 ```
 
 - MConfigProvider
@@ -146,8 +180,7 @@ uniapp-best 提供了一些基础组件，使用时无需引入，直接使用�
 
 - MIcon
 
-svg 图标组件，
-通过 `name` 属性来指定图标名称，图标放置在 `src/assets/icons` 目录下，你可以通过 `svg` 格式来添加自定义图标。
+svg 图标组件，通过 `name` 属性来指定图标名称，图标放置在 `src/assets/icons` 目录下，你可以通过 `svg` 格式来添加自定义图标。
 
 - MNavbar
 

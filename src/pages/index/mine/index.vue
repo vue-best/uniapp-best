@@ -93,7 +93,7 @@
           custom-view-class="px-0"
           key-name="label"
           @cancel="cancel"
-          @confirm="confirm"
+          @confirm="onConfirmLang"
         ></wd-picker>
       </view>
       <view class="flex justify-between items-center w-full text-14px" @click="handleConfirmLogout">
@@ -129,8 +129,8 @@
 
   const showLang = ref(false)
   const langs = ref([appStore.langs])
-  const confirm = (e) => {
-    appStore.setLang(e.value[0].value)
+  const onConfirmLang = (e) => {
+    appStore.setLang(e.value)
     showLang.value = false
   }
   const cancel = (e) => {

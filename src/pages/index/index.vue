@@ -38,7 +38,7 @@
 
   onLaunch(() => {
     // 测试
-    uni.setLocale('en')
+    // uni.setLocale('zh-Hans')
   })
 </script>
 
