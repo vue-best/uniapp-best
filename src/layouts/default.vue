@@ -23,6 +23,6 @@
 
 <style scoped lang="scss">
   .default-layout {
-    @apply relative h-full color-text-1;
+    @apply relative h-full color-text-1 bg-bg-page;
   }
 </style>

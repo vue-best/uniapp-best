@@ -177,6 +177,6 @@
     @apply h-60px rounded-10px p-16px;
     background-image: url('@/static/images/ticket-bg.svg');
     background-repeat: no-repeat;
-    background-position: 50% 50%;
+    background-size: cover;
   }
 </style>

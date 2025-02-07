@@ -14,6 +14,6 @@
 
 <style lang="scss">
   page {
-    @apply bg-bg-page text-14px;
+    @apply h-full bg-bg-page text-14px;
   }
 </style>
