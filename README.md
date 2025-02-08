@@ -59,6 +59,7 @@ uniapp + vue3 + wot design uni + vite5 + pinia + typescript + unocss + sass
 - [x] 小程序开发
 - [x] 自定义 tabbar
 - [x] 自定义 tabbar keepalive效果
+- [x] 接口请求支持防抖
 - [ ] app 检查升级
 
 ### 路由权限
@@ -82,6 +83,22 @@ uniapp + vue3 + wot design uni + vite5 + pinia + typescript + unocss + sass
     }
   ]
 }
+```
+
+### 接口请求防抖
+
+支持接口请求防抖，避免短时间内出现重复请求，浪费服务器资源。
+
+可以在请求配置中设置是否需要防抖。
+
+```ts
+import { request } from '@/utils/request'
+
+request.get<string[]>(`pet/findByStatus`, {
+  loading: true, // 是否显示loading
+  disableDebounce: false, // 是否禁用防抖
+  debounceTime: 500, // 防抖时间
+})
 ```
 
 ### 布局设置
