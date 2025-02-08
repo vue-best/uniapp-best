@@ -113,29 +113,41 @@ export const useUserStore = defineStore('user', {
     },
     contentListAction(): Promise<string[]> {
       return new Promise((resolve, reject) => {
-        this.contentList = [
-          '1',
-          '2',
-          '3',
-          '4',
-          '5',
-          '6',
-          '7',
-          '8',
-          '9',
-          '10',
-          '11',
-          '12',
-          '13',
-          '14',
-          '15',
-          '16',
-          '17',
-          '18',
-          '19',
-          '20',
-        ]
+        getContentList()
+          .then((res) => {
+            if (res) {
+              this.contentList = res
+              resolve(res)
+            }
+          })
+          .catch((error) => {
+            reject(error)
+          })
       })
+      // return new Promise((resolve, reject) => {
+      //   this.contentList = [
+      //     '1',
+      //     '2',
+      //     '3',
+      //     '4',
+      //     '5',
+      //     '6',
+      //     '7',
+      //     '8',
+      //     '9',
+      //     '10',
+      //     '11',
+      //     '12',
+      //     '13',
+      //     '14',
+      //     '15',
+      //     '16',
+      //     '17',
+      //     '18',
+      //     '19',
+      //     '20',
+      //   ]
+      // })
     },
   },
 })

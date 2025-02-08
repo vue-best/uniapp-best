@@ -31,6 +31,7 @@ export default defineConfig(({ mode }) => {
         '/api': {
           target: env.VITE_APP_BASE_API, // 对应自己的接口
           changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
         },
       },
     },

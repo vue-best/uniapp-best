@@ -28,8 +28,9 @@ export function getUserInfo(data: string) {
  * @returns 字符串列表
  */
 export function getContentList() {
-  return request<BasicRes<string[]>>({
-    url: `194000864`,
-    method: 'GET',
+  return request.get<string[]>(`pet/findByStatus`, {
+    loading: true,
+    disableDebounce: false,
+    debounceTime: 500,
   })
 }

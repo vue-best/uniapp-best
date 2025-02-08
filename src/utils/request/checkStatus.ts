@@ -9,11 +9,20 @@ export function checkStatus(err: any) {
       errMessage = `${errMessage}`
       break
     case 401:
-      userStore.logoutAction()
-      uni.navigateTo({
-        url: '/subPages/login/index',
+      uni.showModal({
+        title: '提示',
+        content: '登录超时，请重新登录',
+        showCancel: true,
+        confirmText: '确定',
+        success: function (res) {
+          if (res.confirm) {
+            userStore.logoutAction()
+            uni.reLaunch({
+              url: '/subPages/login/index',
+            })
+          }
+        },
       })
-      errMessage = '登录超时，请重新登录'
       break
     case 403:
       errMessage = '暂无权限查看'
